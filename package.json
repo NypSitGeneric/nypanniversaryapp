@@ -1,0 +1,19 @@
+{
+  "name": "sbf_anniversary_app",
+  "version": "1.0.0",
+  "description": "App for SBF Aniversary",
+  "main": "app.js",
+  "scripts": {
+    "test": "nodemon",
+    "start": "node app",
+    "build": "echo 'build script executed'"
+  },
+  "author": "NYP_School_of_IT",
+  "license": "ISC",
+  "dependencies": {
+    "@handlebars/allow-prototype-access": "^1.0.5",
+    "express": "^4.17.2",
+    "express-handlebars": "^6.0.2",
+    "handlebars": "^4.7.7"
+  }
+}

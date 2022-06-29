@@ -1,0 +1,133 @@
+<div id="admin-page">
+    <h1 id="title">SBF Anniversary Admin</h1>
+    <form action="/reset" method="post">
+        <input type="submit" value="Reset Tiles" class="btn admin-btn btn-style" id="reset">
+    </form>
+    <form action="/fliplogo" method="post">
+        <input type="submit" value="Flip Logo" class="btn admin-btn btn-style" id="flip-logo">
+    </form>
+    <form action="/unfliplogo" method="post">
+        <input type="submit" value="Unflip Logo" class="btn admin-btn btn-style" id="unflip-logo">
+    </form>
+    <div id="sections">
+        <a id="1" class="btn btn-style section-btn" onclick="flipSection(1, event)">Flip Section 1</a>
+        <a id="2" class="btn btn-style section-btn" onclick="flipSection(2, event)">Flip Section 2</a>
+        <a id="3" class="btn btn-style section-btn" onclick="flipSection(3, event)">Flip Section 3</a>
+        <a id="4" class="btn btn-style section-btn" onclick="flipSection(4, event)">Flip Section 4</a>
+        <a id="5" class="btn btn-style section-btn" onclick="flipSection(5, event)">Flip Section 5</a>
+        <a id="6" class="btn btn-style section-btn" onclick="flipSection(6, event)">Flip Section 6</a>
+        <a id="7" class="btn btn-style section-btn" onclick="flipSection(7, event)">Flip Section 7</a>
+        <a id="8" class="btn btn-style section-btn" onclick="flipSection(8, event)">Flip Section 8</a>
+        <a id="9" class="btn btn-style section-btn" onclick="flipSection(9, event)">Flip Section 9</a>
+        <a id="10" class="btn btn-style section-btn" onclick="flipSection(10, event)">Flip Section 10</a>
+    </div>
+</div>
+
+<script>
+    window.onload = () => {
+        // get disabled buttons
+        var disabled = new XMLHttpRequest();
+        disabled.responseType = "json";
+        disabled.open("get", "/disabled", true);
+        disabled.onload = () => {
+            for(var [section, status] of Object.entries(disabled.response)) {
+                if(status) document.getElementById(section).classList.add("disabled");
+            }
+        }
+        disabled.send();
+        // open connection
+        var connection = new EventSource("/adminconnect");
+        connection.onmessage = e => {
+            if(e.data.includes("disable")) {
+                // disable button
+                document.getElementById(e.data.split(" ")[1]).classList.add(".disabled");
+            }
+        };
+    }
+
+    function flipSection(section, event) {
+        document.getElementById(section).classList.add("disabled");
+        var flip = new XMLHttpRequest();
+        flip.open("post", `/flip/${section}`);
+        flip.send();
+    }
+</script>
+
+<style>
+    #admin-page {
+        height: 100vh;
+        position: relative;
+    }
+
+    #title {
+        margin: 0;
+        position: absolute;
+        top: 10%;
+        left: 50%;
+        -ms-transform: translate(-50%, -50%);
+        transform: translate(-50%, -50%);
+    }
+
+    #reset {
+        top: 20%;
+    }
+
+    #flip-logo {
+        top: 30%;
+    }
+    
+    #unflip-logo {
+        top: 40%;
+    }
+
+    #sections {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        position: absolute;
+        top: 75%;
+        left: 50%;
+        -ms-transform: translate(-50%, -50%);
+        transform: translate(-50%, -50%);
+    }
+
+    .section-btn {
+        position: relative;
+        left: 50%;
+        font-size: 20px;
+        -ms-transform: translate(-50%, -50%);
+        transform: translate(-50%, -50%);
+    }
+
+    @media screen and (max-width: 949px) {
+        .section-btn {
+            top: 80%;
+        }
+    }
+
+    @media screen and (min-width: 950px) {
+        .section-btn {
+            font-size: 30px;
+        }
+
+        #sections {
+            top: 75%;
+        }
+    }
+
+    .admin-btn {
+        position: absolute;
+        left: 50%;
+        width: 40vh;
+        font-size: 30px;
+        -ms-transform: translate(-50%, -50%);
+        transform: translate(-50%, -50%);
+    }
+
+    .btn-style {
+        text-align: center;
+        border-radius: 15px;
+        margin: 10px;
+        color: white;
+        background-color: #082c6c;
+    }
+</style>

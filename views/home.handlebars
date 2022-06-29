@@ -1,0 +1,170 @@
+<!-- display grid of tiles -->
+<div class="grid">
+    {{#each tiles}}
+        <div id="{{#add @index }}{{/add}}" class="inner {{#if this}}flip{{/if}}">
+            <div class="front">&nbsp;</div>
+            <div class="back"><img src="/tiles/logoflip_{{#getImg @index}}{{/getImg}}.png" alt="test"/></div>
+        </div>
+    {{/each}}
+</div>
+
+<style>
+    .grid {
+        display: grid;
+        grid-template-columns: repeat(8, 1fr);
+        grid-template-rows: repeat(67, 1fr);
+        height: 97.5vh;
+        width: 100%;
+    }
+
+    .inner {
+        width: 100%;
+        height: 100%;
+        transition: transform 1s;
+        transform-style: preserve-3d;
+    }
+
+    .front, .back {
+        position: absolute;
+        width: 100%;
+        -webkit-backface-visibility: hidden;
+        backface-visibility: hidden;
+    }
+
+    .front {
+        background-color: blue;
+    }
+
+    .back {
+        transform: rotateY(180deg);
+    }
+
+    .flip {
+        transform: rotateY(180deg);
+    }
+
+    .tile {
+        /*border: 1px solid black;*/
+    }
+
+    .logo {
+        width: 100%;
+        grid-column-start: span 3;
+        grid-row-start: span 19;
+    }
+
+    .back-logo {
+        position: relative;
+        top: 4.3%;
+        height: 100%;
+    }
+
+    .front-logo {
+        top: 4.3%;
+        height: 100%;
+        width: 100%;
+    }
+
+    img {
+        width: 100%;
+        height: 100%;
+    }
+</style>
+<script>
+    var sectionIds = [7, 4, 2, 6, 9, 10, 1, 5, 3, 8];
+    var sections = {};
+
+    window.onload = () => {
+        console.log("load");
+        // set tile ids for sections
+        for(var [index, section] of sectionIds.entries()) {
+            // generate array of ids for current section
+            // start: index * 48 + 1
+            if(index == 9) {
+                sections[section] = [...Array(47).keys()].map(i => i + (9 * 48 + 1));
+            } else {
+                sections[section] = [...Array(48).keys()].map(i => i + (index * 48 + 1));
+            }
+        }
+        // open connection
+        var connection = new EventSource("/connect");
+        connection.onmessage = e => {
+            // update grid
+            if(e.data != "connected") {
+                if(e.data == "reset") {
+                    for(var tile of document.getElementsByClassName("inner")) {
+                        tile.classList.remove("flip");
+                    }
+                } else if (e.data === "unfliplogo") {
+                    for(var tile of document.getElementsByClassName("inner logo")) {
+                        tile.classList.remove("flip");
+                    }
+                }else if(e.data.includes("section")) {
+                    // get section id
+                    var section = parseInt(e.data.split(" ")[1]);
+                    // get remaining tiles in section
+                    var remaining = sections[section].filter(id => !document.getElementById(id).classList.contains("flip"));
+                    // shuffle remaining tiles in section
+                    shuffleArray(remaining);
+                    var i = 0;
+                    // set timer
+                    (function loop() {
+                        // set random delay between 500ms and 1sec
+                        var delay = Math.floor(Math.random() * (1000 - 500 + 1)) + 500;
+                        if(section == 8) {
+                            if(i <= 46) {
+                                setTimeout(function() {
+                                    // flip tile
+                                    document.getElementById(remaining[i++]).classList.add("flip");
+                                    loop();
+                                }, delay);
+                            }
+                        }
+                        if(i <= 47) {
+                            setTimeout(function() {
+                                // flip tile
+                                document.getElementById(remaining[i++]).classList.add("flip");
+                                loop();
+                            }, delay);
+                        }
+                    }());
+                } else if(e.data == "remaining") {
+                    for(var tile of document.getElementsByClassName("inner")) {
+                        tile.classList.add("flip");
+                    }
+                } else if(e.data == "ping") {
+                    console.log("ping");
+                } else {
+                    if(!document.getElementById(e.data).classList.contains("flip")) document.getElementById(e.data).classList.toggle("flip")
+                }
+            };
+        };
+        $("#157").before('<div id="logo" class="inner logo {{#if logo}}flip{{/if}}"><div class="front front-logo">&nbsp;</div><div class="back back-logo"><img src="/tiles/logo_final_03.png" alt="test"/></div></div>');
+    }
+
+    document.onkeydown = e => {
+        console.log(e.key);
+        if(e.ctrlKey) {
+            if(e.key == "r") {
+                e.preventDefault();
+                e.stopPropagation();
+                // reset
+                var reset = new XMLHttpRequest();
+                reset.open("post", "reset");
+                reset.send();
+            } else if(e.key == "m") {
+                // flip remaining tiles
+                var reset = new XMLHttpRequest();
+                reset.open("post", "flipremaining");
+                reset.send();
+            }
+        }
+    };
+
+    function shuffleArray(array) {
+        for(let i = array.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [array[i], array[j]] = [array[j], array[i]];
+        }
+    }
+</script>
