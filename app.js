@@ -65,8 +65,12 @@ async function init() {
 }
 
 app.get("/", (req, res) => {
-	if(req.query.id) res.render("lightup", {id: req.query.id, title: `SBF Anniversary Tile ${req.query.id}`});
-	else res.render("home", {tiles, logo, title: "SBF Anniversary App"});
+	if(req.query.id) {
+		res.render("lightup", {id: req.query.id, title: `NYP 30th Anniversary Tile ${req.query.id}`});
+	}
+	else {
+		res.render("home", {tiles, logo, title: "NYP 30th Anniversary App"});
+	}
 });
 
 app.post("/lightup", (req, res) => {
@@ -91,12 +95,12 @@ app.post("/lightup", (req, res) => {
 		});
 	}
 	// res.sendStatus(200);
-	res.render("thankyou", {title: "SBF Anniversary - Thank You"});
+	res.render("thankyou", {title: "NYP 30th Anniversary - Thank You"});
 	//res.redirect("/");
 });
 
 app.get("/admin", (req, res) => {
-	res.render("admin", {title: "SBF Anniversary App Admin"});
+	res.render("admin", {title: "NYP 30th Anniversary App Admin"});
 });
 
 app.get("/disabled", (req, res) => {
