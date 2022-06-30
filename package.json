@@ -1,7 +1,7 @@
 {
-  "name": "sbf_anniversary_app",
+  "name": "nyp_30th_anniversary_app",
   "version": "1.0.0",
-  "description": "App for SBF Aniversary",
+  "description": "App for NYP 30th Anniversary",
   "main": "app.js",
   "scripts": {
     "test": "nodemon",
