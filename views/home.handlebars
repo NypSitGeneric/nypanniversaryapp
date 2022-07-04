@@ -1,19 +1,31 @@
 <!-- display grid of tiles -->
-<div class="grid">
-    {{#each tiles}}
-        <div id="{{#add @index }}{{/add}}" class="inner {{#if this}}flip{{/if}}">
-            <div class="front">&nbsp;</div>
-            <div class="back"><img src="/nyptiles/nyp30_{{#add @index}}{{/add}}.png" alt="test"/></div>
+<div class="main">
+    <div class="item1"></div>
+    <div class="item2">
+        <div class="grid">
+            {{#each tiles}}
+                <div id="{{#add @index }}{{/add}}" class="inner {{#if this}}flip{{/if}}">
+                    <div class="front">&nbsp;</div>
+                    <div class="back"><img src="/nyptiles/nyp30_{{#add @index}}{{/add}}.png" alt="test"/></div>
+                </div>
+            {{/each}}
         </div>
-    {{/each}}
+    </div>
+
+
 </div>
 
 <style>
+    .main {
+        display: grid;
+        grid-template-columns: auto;
+        gap: 83%;
+    }
     .grid {
         display: grid;
-        grid-template-columns: repeat(35, 1fr);
-        grid-template-rows: repeat(40, 1fr);
-        height: 97.5vh;
+        grid-template-columns: repeat(35, auto);
+        grid-template-rows: repeat(40, auto);
+        height: 34.2vh;
         width: 100%;
     }
 
@@ -101,8 +113,6 @@
                 }else if(e.data.includes("section")) {
                     // get section id
                     var section = parseInt(e.data.split(" ")[1]);
-                    console.log(section);
-                    console.log('remaining0');
                     // get remaining tiles in section
                     var remaining = sections[section].filter(id => !document.getElementById(id).classList.contains("flip"));
                     // shuffle remaining tiles in section
