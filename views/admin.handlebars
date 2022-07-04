@@ -3,12 +3,12 @@
     <form action="/reset" method="post">
         <input type="submit" value="Reset Tiles" class="btn admin-btn btn-style" id="reset">
     </form>
-    <form action="/fliplogo" method="post">
-        <input type="submit" value="Flip Logo" class="btn admin-btn btn-style" id="flip-logo">
-    </form>
-    <form action="/unfliplogo" method="post">
-        <input type="submit" value="Unflip Logo" class="btn admin-btn btn-style" id="unflip-logo">
-    </form>
+<!--    <form action="/fliplogo" method="post">-->
+<!--        <input type="submit" value="Flip Logo" class="btn admin-btn btn-style" id="flip-logo">-->
+<!--    </form>-->
+<!--    <form action="/unfliplogo" method="post">-->
+<!--        <input type="submit" value="Unflip Logo" class="btn admin-btn btn-style" id="unflip-logo">-->
+<!--    </form>-->
     <div id="sections">
         <a id="1" class="btn btn-style section-btn" onclick="flipSection(1, event)">Flip Section 1</a>
         <a id="2" class="btn btn-style section-btn" onclick="flipSection(2, event)">Flip Section 2</a>
@@ -47,8 +47,10 @@
 
     function flipSection(section, event) {
         document.getElementById(section).classList.add("disabled");
+        console.log(document.getElementById(section).classList);
         var flip = new XMLHttpRequest();
         flip.open("post", `/flip/${section}`);
+        console.log( `/flip/${section}`);
         flip.send();
     }
 </script>

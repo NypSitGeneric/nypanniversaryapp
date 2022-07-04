@@ -48,7 +48,7 @@ app.set('view engine', 'handlebars');
 
 app.use(Express.static("public", {maxAge: 3600000}));
 
-var tiles = Array(479);
+var tiles = Array(1400);
 var sectionIds = [7, 4, 2, 6, 9, 10, 1, 5, 3, 8];
 var disabled = {};
 var logo = false;
@@ -74,22 +74,22 @@ app.get("/", (req, res) => {
 });
 
 app.post("/lightup", (req, res) => {
-	if(req.body.id == 480) {
-		logo = true;
-		Object.values(clients).forEach(client => {
-			client.write(`data: logo\n\n`);
-		});
-	} else {
+	//if(req.body.id == 480) {
+		//logo = true;
+		//Object.values(clients).forEach(client => {
+		//	client.write(`data: logo\n\n`);
+		//});
+	//} else {
 		tiles[req.body.id - 1] = true;
 		// get section index
-		var index = Math.ceil(req.body.id / 48) - 1;
+		var index = Math.ceil(req.body.id / 140) - 1;
 		// check if all tiles in section are already flipped
-		if(tiles.slice(index * 48, (index + 1) * 48 - 1).every(Boolean)) {
+		if(tiles.slice(index * 140, (index + 1) * 140 - 1).every(Boolean)) {
 			disabled[sectionIds[index]] = true;
 			Object.values(admins).forEach(client => {
 				client.write(`data: disable ${sectionIds[index]}\n\n`);
 			});
-		}
+		//}
 		Object.values(clients).forEach(client => {
 			client.write(`data: ${req.body.id}\n\n`);
 		});
@@ -147,9 +147,14 @@ app.post("/unfliplogo", (req, res) => {
 // last section will have 47 tiles, while the others will have 48
 app.post("/flip/:section", (req, res) => {
 	// flip tiles in section
+	console.log(req.params.section);
 	var index = sectionIds.indexOf(parseInt(req.params.section));
-	for(var i = index * 48; i <= (index + 1) * 48 - 1; i++) {
-		if(i <= 478) tiles[i] = true;
+	for(var i = index * 140; i <= (index + 1) * 140 - 1; i++) {
+		if(i <= 1399) tiles[i] = true;
+		if (index == 9) {
+			console.log(i);
+		}
+
 	}
 	Object.values(clients).forEach(client => {
 		client.write(`data: section ${req.params.section}\n\n`);
