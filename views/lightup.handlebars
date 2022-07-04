@@ -1,12 +1,12 @@
 <div class="lmain">
     <div class="ltop">
-        <img class="lsbf20" src="/sbfimg/logo_sbf20.png"/>
+        <img class="lnyp30" src="/nypimg/corp_nyp_logo.png"/>
         <div style="margin:3vh 2vh;">
-            <p class="lsgbook">
+<!--            <p class="lsgbook">
                 <span class="lsgbook_title">Singapore Book of Records</span>
                 <br/>
                 <span class="lsgbook_desc">Largest Mass Digital Activation Of A Screen Projection</span>
-            </p>
+            </p>-->
             <form action="/lightup" method="post">
                 <input type="hidden" name="id" value="{{ id }}">
                 <input id="light-up-btn" type="submit" value="Press to Light Up Tile {{ id }}" class="btn">
@@ -14,7 +14,7 @@
         </div>
     </div>
     <div class="lbottom">
-        <div class="lpowered">Powered By<img src="/sbfimg/logo_nyp.png"/></div>
+        <div class="lpowered">Powered By<img src="/nypimg/logo_nyp.png"/></div>
     </div>
 </div>
 
@@ -45,7 +45,7 @@
         top: 80%;
         padding-top: 0vh;
     }
-    .lsbf20 {
+    .lnyp30 {
         height: 35vh;
         width: auto;
     }
@@ -71,12 +71,12 @@
     }
     @media (orientation: portrait) {
         .lmain {
-            background-image: url('sbfimg/bkgd_red_portrait.png');
+            background-image: url('nypimg/bkgd_red_portrait.png');
         }
     }
     @media (orientation: landscape) {
         .lmain {
-            background-image: url('sbfimg/bkgd_red_landscape.png');
+            background-image: url('nypimg/bkgd_red_landscape.png');
         }
         .lsgbook_title {
             font-size: 2.2em;
@@ -177,68 +177,6 @@
             font-size: 1.6em;
         }
     }
-/*****************
-    @media screen and (min-device-width: 620px) {
-        .ltop {
-            height:45vh;
-        }
-        .lbottom {
-            height:55vh;
-            top: 45%;
-        }
-    }
-    @media screen and (min-device-width: 690px) {
-        .ltop {
-            height:40vh;
-        }
-        .lbottom {
-            height:60vh;
-            top: 40%;
-        }
-    }
-    @media screen and (min-device-width: 818px) {
-        .ltop {
-            height:45vh;
-        }
-        .lbottom {
-            background-image: url('sbfimg/bkgd_red_landscape.png');
-            height:55vh;
-            top: 45%;
-        }
-        .lpowered {
-            padding-left: 5vw;
-            padding-top: 6em;
-        }
-    }
-    @media screen and (min-device-width: 1190px) {
-        .ltop {
-            height:50vh;
-        }
-        .lbottom {
-            background-image: url('sbfimg/bkgd_red_landscape.png');
-            height:50vh;
-            top: 50%;
-        }
-        .lpowered {
-            padding-left: 5vw;
-            padding-top: 3em;
-        }
-    }
-    @media screen and (min-device-width: 1485px) {
-        .ltop {
-            height:60vh;
-        }
-        .lbottom {
-            background-image: url('sbfimg/bkgd_red_landscape.png');
-            height:40vh;
-            top: 60%;
-        }
-        .lpowered {
-            padding-left: 5vw;
-            padding-top: 3em;*****************//*TODO,ver*//*****************
-        }
-    }
-*****************/
     #light-up {
         /*position: relative;
         height: 100vh;*/
@@ -249,40 +187,11 @@
         width: 100%;
         text-align: center;
         font-family: Arial, Helvetica, sans-serif;
-        background-image: url('sbfimg/bkgd_red_portrait.png');
+        background-image: url('nypimg/bkgd_red_portrait.png');
         background-repeat: no-repeat;
         background-size: contain;/*cover*/
         background-position: bottom;
     }
-    /*@media (orientation: portrait) {
-        #light-up {
-            background-image: url('sbfimg/bkgd_red_portrait.png');
-        }
-    }
-    @media (orientation: landscape) {
-        #light-up {
-            background-image: url('sbfimg/bkgd_red_landscape.png');
-        }
-    }*/
-
-    /*.title {
-        left: 50%;
-        -ms-transform: translate(-50%, -50%);
-        transform: translate(-50%, -50%);
-        background-color:aqua;
-    }
-
-    h1 {
-        position: absolute;
-        top: 32%;
-        border: solid 20px magenta;
-    }
-
-    h2 {
-        position: absolute;
-        top: 40%;
-        border: solid 10px orange;
-    }*/
 
     #light-up-btn {
         /*position: absolute;
@@ -305,7 +214,7 @@
         /*background-color: #082c6c;
         border-radius: 15px;
         box-shadow: 0 8px 16px 0 rgba(0,0,0,0.55), 0 6px 20px 0 rgba(0,0,0,0.19);*/
-        background-image: url('sbfimg/btn_blue.png');
+        background-image: url('nypimg/btn_blue.png');
         background-repeat: no-repeat;
         background-position: center center;
         margin: 4vh 0vh 0vh;
@@ -314,7 +223,7 @@
         box-shadow: 0 8px 16px 0 rgba(0,0,0,0.55), 0 6px 20px 0 rgba(0,0,0,0.19);
     }
     #light-up-btn:hover, #light-up-btn:active {
-        background-image: url('sbfimg/btn_gray.png');
+        background-image: url('nypimg/btn_gray.png');
         border-color: #333333;
         color: gray;
     }
