@@ -22,6 +22,8 @@
         gap: 83%;
     }
     .grid {
+        padding-right: 6px;
+        padding-left: 6px;
         display: grid;
         grid-template-columns: repeat(35, auto);
         grid-template-rows: repeat(40, auto);
@@ -92,9 +94,7 @@
         for(var [index, section] of sectionIds.entries()) {
             // generate array of ids for current section
             // start: index * 48 + 1
-            console.log("index:",index);
             sections[section] = [...Array(140).keys()].map(i => i + (index * 140 + 1));
-            console.log(sections[section].filter(id => !document.getElementById(id).classList.contains("flip")));
         }
         // open connection
         var connection = new EventSource("/connect");
@@ -137,7 +137,6 @@
                 } else if(e.data == "ping") {
                     console.log("ping");
                 } else {
-                    console.log("kk ",e.data);
                     if(!document.getElementById(e.data).classList.contains("flip")) document.getElementById(e.data).classList.toggle("flip")
                 }
             };

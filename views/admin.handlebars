@@ -47,10 +47,8 @@
 
     function flipSection(section, event) {
         document.getElementById(section).classList.add("disabled");
-        console.log(document.getElementById(section).classList);
         var flip = new XMLHttpRequest();
         flip.open("post", `/flip/${section}`);
-        console.log( `/flip/${section}`);
         flip.send();
     }
 </script>
