@@ -83,6 +83,7 @@ app.post("/lightup", (req, res) => {
 		tiles[req.body.id - 1] = true;
 		// get section index
 		var index = Math.ceil(req.body.id / 140) - 1;
+
 		// check if all tiles in section are already flipped
 		if(tiles.slice(index * 140, (index + 1) * 140 - 1).every(Boolean)) {
 			disabled[sectionIds[index]] = true;
@@ -94,6 +95,9 @@ app.post("/lightup", (req, res) => {
 			client.write(`data: ${req.body.id}\n\n`);
 		});
 	}
+	Object.values(clients).forEach(client => {
+		client.write(`data: ${req.body.id}\n\n`);
+	});
 	// res.sendStatus(200);
 	res.render("thankyou", {title: "NYP 30th Anniversary - Thank You"});
 	//res.redirect("/");
