@@ -17,30 +17,6 @@ app.engine('handlebars', exphbs.engine({
 	helpers: {
 		add: function (index) {
 			return index + 1;
-		},
-		getImg: function (index) {
-			index += 1;
-			var newIndex = index;
-			if(index >= 157) newIndex += 3;
-			if(index >= 162) newIndex += 3;
-			if(index >= 167) newIndex += 3;
-			if(index >= 172) newIndex += 3;
-			if(index >= 177) newIndex += 3;
-			if(index >= 182) newIndex += 3;
-			if(index >= 187) newIndex += 3;
-			if(index >= 192) newIndex += 3;
-			if(index >= 197) newIndex += 3;
-			if(index >= 202) newIndex += 3;
-			if(index >= 207) newIndex += 3;
-			if(index >= 212) newIndex += 3;
-			if(index >= 217) newIndex += 3;
-			if(index >= 222) newIndex += 3;
-			if(index >= 227) newIndex += 3;
-			if(index >= 232) newIndex += 3;
-			if(index >= 237) newIndex += 3;
-			if(index >= 242) newIndex += 3;
-			if(index >= 247) newIndex += 3;
-			return (newIndex).toString().padStart(2, "0");
 		}
 	}
 }));
@@ -51,6 +27,7 @@ app.use(Express.static("public", {maxAge: 3600000}));
 var tiles = Array(1400);
 var sectionIds = [7, 4, 2, 6, 9, 10, 1, 5, 3, 8];
 var disabled = {};
+var flippedTiles = {};
 var logo = false;
 var clients = {};
 var admins = {};
@@ -61,6 +38,9 @@ async function init() {
 	tiles.fill(false);
 	for(var i = 1; i <= 10; i++) {
 		disabled[i] = false;
+	}
+	for(var i = 1;i<= 1400; i++) {
+		flippedTiles[i] = false;
 	}
 }
 
@@ -81,8 +61,10 @@ app.post("/lightup", (req, res) => {
 		//});
 	//} else {
 		tiles[req.body.id - 1] = true;
+		flippedTiles[req.body.id] = true;
 		// get section index
 		var index = Math.ceil(req.body.id / 140) - 1;
+
 		// check if all tiles in section are already flipped
 		if(tiles.slice(index * 140, (index + 1) * 140 - 1).every(Boolean)) {
 			disabled[sectionIds[index]] = true;
@@ -94,6 +76,9 @@ app.post("/lightup", (req, res) => {
 			client.write(`data: ${req.body.id}\n\n`);
 		});
 	}
+	Object.values(clients).forEach(client => {
+		client.write(`data: ${req.body.id}\n\n`);
+	});
 	// res.sendStatus(200);
 	res.render("thankyou", {title: "NYP 30th Anniversary - Thank You"});
 	//res.redirect("/");
@@ -107,8 +92,15 @@ app.get("/disabled", (req, res) => {
 	res.json(disabled);
 });
 
+app.get("/tiles",(req,res) => {
+	res.json(flippedTiles);
+});
+
 app.post("/reset", (req, res) => {
 	tiles.fill(false);
+	for(var i = 1;i<= 1400; i++) {
+		flippedTiles[i] = false;
+	}
 	for(var i = 1; i <= 10; i++) {
 		disabled[i] = false;
 	}
@@ -121,6 +113,9 @@ app.post("/reset", (req, res) => {
 
 app.post("/flipremaining", (req, res) => {
 	tiles.fill(true);
+	for(var i = 1;i<= 1400; i++) {
+		flippedTiles[i] = true;
+	}
 	Object.values(clients).forEach(client => {
 		client.write(`data: remaining\n\n`);
 	});
@@ -150,11 +145,10 @@ app.post("/flip/:section", (req, res) => {
 	console.log(req.params.section);
 	var index = sectionIds.indexOf(parseInt(req.params.section));
 	for(var i = index * 140; i <= (index + 1) * 140 - 1; i++) {
-		if(i <= 1399) tiles[i] = true;
-		if (index == 9) {
-			console.log(i);
+		if(i <= 1399) {
+			tiles[i] = true;
+			flippedTiles[i+1] = true;
 		}
-
 	}
 	Object.values(clients).forEach(client => {
 		client.write(`data: section ${req.params.section}\n\n`);

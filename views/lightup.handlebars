@@ -8,7 +8,7 @@
                 <span class="lsgbook_desc">Largest Mass Digital Activation Of A Screen Projection</span>
             </p>-->
             <form action="/lightup" method="post">
-                <input type="hidden" name="id" value="{{ id }}">
+                <input type="hidden" id="id" name="id" value="{{ id }}">
                 <input id="light-up-btn" type="submit" value="Press to Light Up Tile {{ id }}" class="btn">
             </form>
         </div>
@@ -18,6 +18,25 @@
     </div>
 </div>
 
+<script>
+    window.onload = () => {
+        var flippedTiles = new XMLHttpRequest();
+        flippedTiles.responseType = "json";
+        flippedTiles.open("GET","/tiles",true);
+        flippedTiles.send();
+        flippedTiles.onload = () => {
+            var tiles = flippedTiles.response;
+            var id = document.getElementById("id");
+            if (tiles[id.value] === true) {
+                document.getElementById("light-up-btn").classList.add("disabled");
+            }
+            else {
+                document.getElementById("light-up-btn").classList.remove("disabled");
+            }
+
+        }
+    }
+</script>
 
 <style>
     .lmain {

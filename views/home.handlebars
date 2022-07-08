@@ -6,7 +6,7 @@
             {{#each tiles}}
                 <div id="{{#add @index }}{{/add}}" class="inner {{#if this}}flip{{/if}}">
                     <div class="front">&nbsp;</div>
-                    <div class="back"><img src="/nyptiles/nyp30_{{#add @index}}{{/add}}.png" alt="test"/></div>
+                    <div class="back"><img src="/nyptiles/nyp30_{{#add @index}}{{/add}}.png" alt="loading"/></div>
                 </div>
             {{/each}}
         </div>
@@ -101,7 +101,6 @@
         connection.onmessage = e => {
             // update grid
             if(e.data != "connected") {
-
                 if(e.data == "reset") {
                     for(var tile of document.getElementsByClassName("inner")) {
                         tile.classList.remove("flip");
@@ -137,7 +136,8 @@
                 } else if(e.data == "ping") {
                     console.log("ping");
                 } else {
-                    if(!document.getElementById(e.data).classList.contains("flip")) document.getElementById(e.data).classList.toggle("flip")
+                    if(!document.getElementById(e.data).classList.contains("flip")) {
+                        document.getElementById(e.data).classList.toggle("flip")}
                 }
             };
         };
