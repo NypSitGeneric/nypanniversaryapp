@@ -11,6 +11,8 @@
                 <input type="hidden" id="id" name="id" value="{{ id }}">
                 <input id="light-up-btn" type="submit" value="Press to Light Up Tile {{ id }}" class="btn">
             </form>
+            <br/>
+            <p class="lsgbook_desc" id="msg" hidden="true">Tile {{id}} had been Light Up. Thank you for your participation.</p>
         </div>
     </div>
     <div class="lbottom">
@@ -29,9 +31,11 @@
             var id = document.getElementById("id");
             if (tiles[id.value] === true) {
                 document.getElementById("light-up-btn").classList.add("disabled");
+                document.getElementById("msg").hidden = false;
             }
             else {
                 document.getElementById("light-up-btn").classList.remove("disabled");
+                document.getElementById("msg").hidden = true;
             }
 
         }
