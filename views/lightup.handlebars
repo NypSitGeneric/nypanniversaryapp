@@ -1,23 +1,43 @@
+<link rel="stylesheet" href="/css/slide-to-submit.css">
+<script src="/js/jquery.js"></script>
+<script src="/js/slide-to-submit.js"></script>
 <div class="lmain">
     <div class="ltop">
-        <img class="lnyp30" src="/nypimg/corp_nyp_logo.png"/>
+<!--        <img class="lnyp30" src="/nypimg/corp_nyp_logo.png"/>-->
         <div style="margin:3vh 2vh;">
 <!--            <p class="lsgbook">
                 <span class="lsgbook_title">Singapore Book of Records</span>
                 <br/>
                 <span class="lsgbook_desc">Largest Mass Digital Activation Of A Screen Projection</span>
             </p>-->
-            <form action="/lightup" method="post">
-                <input type="hidden" id="id" name="id" value="{{ id }}">
-                <input id="light-up-btn" type="submit" value="Press to Light Up Tile {{ id }}" class="btn">
-            </form>
+<!--            <form action="/lightup" method="post">-->
+<!--                <input type="hidden" id="id" name="id" value="{{ id }}">-->
+<!--                <input id="light-up-btn" type="submit" value="Press to Light Up Tile {{ id }}" class="btn">-->
+<!--            </form>-->
             <br/>
+<!--            <form action="/lightup" method="post">-->
+<!--                <input type="hidden" id="id" name="id" value="{{ id }}">-->
+<!--                <input type="submit" value="Press to Light Up Tile {{ id }}" class="btn" hidden="true">-->
+<!--                <div class="slide-submit">-->
+<!--                    <div class="slide-submit-text">Slide To Light Up Tile {{ id }}</div>-->
+<!--                    <div class="slide-submit-thumb">»</div>-->
+<!--                </div>-->
+<!--            </form>-->
+            <form action="/lightup" method="post">
+               <input type="hidden" id="id" name="id" value="{{ id }}">
+               <input type="submit" value="Press to Light Up Tile {{ id }}" class="btn" hidden="true">
+               <div id="lightUpBtn" class="slide-submit">
+                   <div class="slide-submit-text">Slide To Light Up Tile {{ id }}</div>
+                   <div class="slide-submit-thumb"></div>
+               </div>
+            </form>
             <p class="lsgbook_desc" id="msg" hidden="true">Tile {{id}} had been Light Up. Thank you for your participation.</p>
         </div>
+
     </div>
-    <div class="lbottom">
-        <div class="lpowered">Powered By<img src="/nypimg/logo_nyp.png"/></div>
-    </div>
+<!--    <div class="lbottom">-->
+<!--        <div class="lpowered">Powered By<img src="/nypimg/logo_nyp.png"/></div>-->
+<!--    </div>-->
 </div>
 
 <script>
@@ -30,25 +50,32 @@
             var tiles = flippedTiles.response;
             var id = document.getElementById("id");
             if (tiles[id.value] === true) {
-                document.getElementById("light-up-btn").classList.add("disabled");
+                document.getElementById("lightUpBtn").hidden = true;
                 document.getElementById("msg").hidden = false;
             }
             else {
-                document.getElementById("light-up-btn").classList.remove("disabled");
+                //document.getElementById("light-up-btn").classList.remove("disabled");
+                document.getElementById("lightUpBtn").hidden = false;
                 document.getElementById("msg").hidden = true;
             }
 
         }
     }
+    $('.slide-submit').slideToSubmit({
+        errorText: 'Check required fields', // Shown if fields are invalid & browser doesn't have built-in tooltips
+        successText: 'Thank you for participating', // Shown before submitting
+        submitDelay: 2000, // Delay for showing successText
+        graceZone: 100 // Pixels from the right that is accepted as a full side
+    });
 </script>
 
 <style>
     .lmain {
-        height: 100vh;
+        height: 108vh;
         position: relative;
         text-align: center;
         font-family: Arial, Helvetica, sans-serif;
-        background-color: white;
+        background-color: #222222;
         background-repeat: no-repeat;
         background-size: contain;
         background-position: center bottom;
@@ -83,6 +110,8 @@
     }
     .lsgbook_desc {
         font-size: 1em;
+        color: white;
+        margin: 87vh auto auto auto;
     }
     .lpowered {
         padding-top: 1em;
@@ -94,12 +123,12 @@
     }
     @media (orientation: portrait) {
         .lmain {
-            background-image: url('nypimg/bkgd_red_portrait.png');
+            background-image: url('nypimg/background-card.jpg');
         }
     }
     @media (orientation: landscape) {
         .lmain {
-            background-image: url('nypimg/bkgd_red_landscape.png');
+            background-image: url('nypimg/background-web.jpg');
         }
         .lsgbook_title {
             font-size: 2.2em;
@@ -113,10 +142,16 @@
             height: 107vh;
             width: 107vw;
         }
+        .lsgbook_desc {
+            font-size: 0.80em;
+        }
     }
     @media screen and (max-width: 342px) {
         .lpowered {
             padding-top: 1.5em;
+        }
+        .lsgbook_desc {
+            font-size: 0.80em;
         }
     }
     @media screen and (max-width: 434px) {
@@ -124,11 +159,17 @@
             height: 14vh;
             top: 86%;
         }
+        .lsgbook_desc {
+            font-size: 0.80em;
+        }
     }
     @media screen and (max-width: 543px) {
         .lbottom {
             height: 17vh;
             top: 83%;
+        }
+        .lsgbook_desc {
+            font-size: 0.80em;
         }
     }
     @media screen and (max-width: 780px) {
@@ -140,7 +181,11 @@
             font-size: 1.75em;
         }
         .lsgbook_desc {
-            font-size: 1.15em;
+            font-size: 0.80em;
+            margin: 63vh auto auto auto;
+        }
+        .lmain {
+            background-position: center top;
         }
     }
     @media screen and (min-width: 658px) and (max-width: 954px) {
