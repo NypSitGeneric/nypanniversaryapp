@@ -64,7 +64,7 @@ app.post("/lightup", (req, res) => {
 		flippedTiles[req.body.id] = true;
 		// get section index
 		var index = Math.ceil(req.body.id / 140) - 1;
-
+		var id = req.body.id;
 		// check if all tiles in section are already flipped
 		if(tiles.slice(index * 140, (index + 1) * 140 - 1).every(Boolean)) {
 			disabled[sectionIds[index]] = true;
@@ -80,8 +80,11 @@ app.post("/lightup", (req, res) => {
 		client.write(`data: ${req.body.id}\n\n`);
 	});
 	// res.sendStatus(200);
-	res.render("thankyou", {title: "NYP 30th Anniversary - Thank You"});
-	//res.redirect("/");
+	//res.render("thankyou", {title: "NYP 30th Anniversary - Thank You"});
+	res.redirect(`/?id=${id}`);
+	//res.redirect('back');
+	//res.sendStatus(200);
+	//res.status(200);
 });
 
 app.get("/admin", (req, res) => {
