@@ -65,13 +65,13 @@
         background-size: cover;
         background-repeat: no-repeat;
         padding:1.5em 1.5em;
-        font-size:1em;
+        font-size:.8em;
         text-align:right;
         width: 30vh;
-        margin: 57vh auto auto auto;
+        margin: 60vh auto auto auto;
     }
     .slide-success{
         text-align: left;
-        font-size: .95em;
+        font-size: .8em;
     }
 }
