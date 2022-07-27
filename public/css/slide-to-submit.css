@@ -105,24 +105,11 @@
         font-size: .8em;
     }
 }
-@media screen and (height: 720px) and (width: 360px) {
-    /*Samsung A6s*/
-    .slide-submit {
-        background-size: cover;
-        background-repeat: no-repeat;
-        padding:1.5em 1.5em;
-        font-size:.6em;
-        text-align:right;
-        width: 25vh;
-        margin: 45vh auto auto auto;
-    }
-    .slide-success{
-        text-align: left;
-        font-size: .8em;
-    }
-}
 @media screen and (height: 640px) and (width: 360px) {
-    /*Samsung S6/S6 Edge/S7/S7 Edge*/
+    /*Samsung S6/S6 Edge/S7/S7 Edge
+      Sony Xperia X/XZ
+      HTC Desire 628/10 Lifestyle
+    */
     .slide-submit {
         background-size: cover;
         background-repeat: no-repeat;
@@ -131,6 +118,24 @@
         text-align:right;
         width: 30vh;
         margin: 51vh auto auto auto;
+    }
+    .slide-success{
+        text-align: left;
+        font-size: .8em;
+    }
+}
+@media screen and (height: 720px) and (width: 360px) {
+    /*Samsung A6s
+      Huawei Mate 10 Lite
+    */
+    .slide-submit {
+        background-size: cover;
+        background-repeat: no-repeat;
+        padding:1.5em 1.5em;
+        font-size:.6em;
+        text-align:right;
+        width: 25vh;
+        margin: 45vh auto auto auto;
     }
     .slide-success{
         text-align: left;
@@ -169,9 +174,26 @@
         font-size: .8em;
     }
 }
+@media screen and (height: 770px) and (width: 360px) {
+    /*Huawei Nove 7i*/
+    .slide-submit {
+        background-size: cover;
+        background-repeat: no-repeat;
+        padding:1.5em 1.5em;
+        font-size:.7em;
+        text-align:right;
+        width: 27vh;
+        margin: 41.5vh auto auto auto;
+    }
+    .slide-success{
+        text-align: left;
+        font-size: .8em;
+    }
+}
 @media screen and (height: 780px) and (width: 360px) {
     /*Iphone 12 mini/13 mini
       Honor 8X/9X
+      Huawei Y9s/Y9 Prime/Mate 20 Lite/Mate 20 Pro/Mate 30
     */
     .slide-submit {
         background-size: cover;
@@ -267,7 +289,22 @@
         font-size: .8em;
     }
 }
-
+@media screen and (height: 800px) and (width: 392px) {
+    /*Huawei Mate 30 Pro*/
+    .slide-submit {
+        background-size: cover;
+        background-repeat: no-repeat;
+        padding:1.5em 1.5em;
+        font-size:.8em;
+        text-align:right;
+        width: 28vh;
+        margin: 43.5vh auto auto auto;
+    }
+    .slide-success{
+        text-align: left;
+        font-size: .8em;
+    }
+}
 @media screen and (height: 786px) and (width: 393px) {
     /*Google Pixel 3*/
     .slide-submit {
@@ -278,6 +315,38 @@
         text-align:right;
         width: 28vh;
         margin: 45vh auto auto auto;
+    }
+    .slide-success{
+        text-align: left;
+        font-size: .8em;
+    }
+}
+@media screen and (height: 851px) and (width: 393px) {
+    /*Xiaomi Mi Note 7/Note 8/Note 8 Pro/9/9T Pro/10/Note 10*/
+    .slide-submit {
+        background-size: cover;
+        background-repeat: no-repeat;
+        padding:1.5em 1.5em;
+        font-size:.8em;
+        text-align:right;
+        width: 26vh;
+        margin: 41vh auto auto auto;
+    }
+    .slide-success{
+        text-align: left;
+        font-size: .8em;
+    }
+}
+@media screen and (height: 873px) and (width: 393px) {
+    /*Xiaomi Mi 10T Pro*/
+    .slide-submit {
+        background-size: cover;
+        background-repeat: no-repeat;
+        padding:1.5em 1.5em;
+        font-size:.8em;
+        text-align:right;
+        width: 25vh;
+        margin: 40vh auto auto auto;
     }
     .slide-success{
         text-align: left;
@@ -318,7 +387,9 @@
     }
 }
 @media screen and (height: 869px) and (width: 412px) {
-    /*Samsung S10+/10/10+*/
+    /*Samsung S10+/Note 10/Note 10+
+      OnePlus 6
+    */
     .slide-submit {
         background-size: cover;
         background-repeat: no-repeat;
@@ -350,7 +421,9 @@
     }
 }
 @media screen and (height: 892px) and (width: 412px) {
-    /* Samsung A30*/
+    /* Samsung A30
+       OnePlus 6T/7/7 Pro/7T Pro/
+    */
     .slide-submit {
         background-size: cover;
         background-repeat: no-repeat;
@@ -381,8 +454,26 @@
         font-size: .8em;
     }
 }
+@media screen and (height: 906px) and (width: 412px) {
+    /* OnePlus 8 Pro*/
+    .slide-submit {
+        background-size: cover;
+        background-repeat: no-repeat;
+        padding:1.5em 1.5em;
+        font-size:.8em;
+        text-align:right;
+        width: 25vh;
+        margin: 40.5vh auto auto auto;
+    }
+    .slide-success{
+        text-align: left;
+        font-size: .8em;
+    }
+}
 @media screen and (height: 914px) and (width: 412px) {
-    /* Samsung A70s/A71/S10 Lite/S20 FE*/
+    /* Samsung A70s/A71/S10 Lite/S20 FE
+       OnePlus 7T/8T
+    */
     .slide-submit {
         background-size: cover;
         background-repeat: no-repeat;
@@ -398,7 +489,9 @@
     }
 }
 @media screen and (height: 915px) and (width: 412px) {
-    /* Samsung A31/A32/a51/Note 20/S20 Ultra*/
+    /* Samsung A31/A32/A51/Note 20/S20 Ultra
+       OnePlus Nord/Nord 2/8/9
+    */
     .slide-submit {
         background-size: cover;
         background-repeat: no-repeat;
@@ -407,6 +500,22 @@
         text-align:right;
         width: 25vh;
         margin: 40vh auto auto auto;
+    }
+    .slide-success{
+        text-align: left;
+        font-size: .8em;
+    }
+}
+@media screen and (height: 919px) and (width: 412px) {
+    /* OnePlus 9 Pro/10 Pro*/
+    .slide-submit {
+        background-size: cover;
+        background-repeat: no-repeat;
+        padding:1.5em 1.5em;
+        font-size:.8em;
+        text-align:right;
+        width: 25vh;
+        margin:40vh auto auto auto;
     }
     .slide-success{
         text-align: left;
@@ -503,6 +612,38 @@
         text-align:center;
         width: 35vh;
         margin: 70vh auto auto auto;
+    }
+    .slide-success{
+        text-align: left;
+        font-size: .8em;
+    }
+}
+@media screen and (height: 1080px) and (width: 810px) {
+    /*Apple Ipad 10.2"*/
+    .slide-submit {
+        background-size: cover;
+        background-repeat: no-repeat;
+        padding:1.5em 1.5em;
+        font-size:1em;
+        text-align:center;
+        width: 40vh;
+        margin: 71vh auto auto auto;
+    }
+    .slide-success{
+        text-align: left;
+        font-size: .8em;
+    }
+}
+@media screen and (height: 1180px) and (width: 820px) {
+    /*Apple Ipad Air 10.9"*/
+    .slide-submit {
+        background-size: cover;
+        background-repeat: no-repeat;
+        padding:1.5em 1.5em;
+        font-size:1em;
+        text-align:center;
+        width: 40vh;
+        margin: 72vh auto auto auto;
     }
     .slide-success{
         text-align: left;
