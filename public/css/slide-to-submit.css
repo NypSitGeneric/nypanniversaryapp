@@ -488,7 +488,7 @@
         font-size: .8em;
     }
 }
-@media (height: 915px) and (width: 412px) {
+@media only screen and (height: 915px) and (width: 412px) {
     /* Samsung A31/A32/A51/Note 20/S20 Ultra
        OnePlus Nord/Nord 2/8/9
     */
@@ -499,7 +499,7 @@
         font-size:.8em;
         text-align:right;
         width: 25vh;
-        margin: 40vh auto auto auto;
+        margin: 45vh auto auto auto;
     }
     .slide-success{
         text-align: left;
