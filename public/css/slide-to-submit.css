@@ -20,6 +20,14 @@
 .slide-submit-text{
     display:inline-block
 }
+.tile-submit{
+    font-size:1em;
+    position:relative;
+    user-select:none;
+    -moz-user-select:none;
+    -webkit-user-select:none;
+    color:white;
+}
 .slide-submit-thumb{
     position:absolute;
     top:0px;
@@ -65,10 +73,14 @@
         background-size: cover;
         background-repeat: no-repeat;
         padding:1.5em 1.5em;
-        font-size:.8em;
-        text-align:right;
-        width: 28vh;
-        margin: 35vh auto auto auto;
+        font-size:1em;
+        text-align:center;
+        width: 27vh;
+        margin: 9% auto auto auto;
+    }
+    .tile-submit{
+        text-align:center;
+        margin: 79% auto auto auto;
     }
     .slide-success{
         text-align: left;
@@ -82,25 +94,11 @@
         font-size:1em;
         text-align:center;
         width: 50vh;
-        margin: 78.5vh auto auto auto;
+        margin: 2.5% auto auto auto;
     }
-    .slide-success{
-        text-align: left;
-        font-size: .8em;
-    }
-}
-@media only screen and (height: 915px) and (width: 412px) {
-    /* Samsung A31/A32/A51/Note 20/S20 Ultra
-       OnePlus Nord/Nord 2/8/9
-    */
-    .slide-submit {
-        background-size: cover;
-        background-repeat: no-repeat;
-        padding:1.5em 1.5em;
-        font-size:.8em;
-        text-align:right;
-        width: 25vh;
-        margin: 40vh auto auto auto;
+    .tile-submit{
+        text-align:center;
+        margin: 41.5% auto auto auto;
     }
     .slide-success{
         text-align: left;
