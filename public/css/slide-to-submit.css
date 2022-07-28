@@ -43,7 +43,7 @@
     font-size:20px;
     line-height:35px;
     font-family:serif;
-    color:greenyellow;
+    /*color:greenyellow;*/
 }
 .slide-submit-thumb:hover,.draggable{
     background:#febf36;
@@ -103,5 +103,10 @@
     .slide-success{
         text-align: center;
         font-size: 1em;
+    }
+}
+@media screen and (max-width: 360px) {
+    .slide-success{
+        text-align:left;
     }
 }
