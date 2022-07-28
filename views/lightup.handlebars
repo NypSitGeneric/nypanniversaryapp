@@ -81,7 +81,7 @@
         background-color: #222222;
         background-repeat: no-repeat;
         background-size: contain;
-        background-position: center bottom;
+        /*background-position: center bottom;*/
     }
     .ltop {
         width: 100%;
@@ -114,7 +114,7 @@
     .lsgbook_desc {
         font-size: 1em;
         color: white;
-        margin: 87vh auto auto auto;
+        /*margin: 31% auto auto auto;*/
     }
     .lpowered {
         padding-top: 1em;
@@ -127,147 +127,26 @@
     @media (orientation: portrait) {
         .lmain {
             background-image: url('nypimg/background-card.jpg');
+            background-position: center top;
+        }
+        .lsgbook_desc {
+            margin: 31% auto auto auto;
         }
     }
     @media (orientation: landscape) {
         .lmain {
             background-image: url('nypimg/background-web.jpg');
+            background-position: center bottom;
         }
         .lsgbook_title {
             font-size: 2.2em;
         }
         .lsgbook_desc {
             font-size: 1.45em;
+            margin: 10% auto auto auto;
         }
     }
 
-    @media screen and (max-width: 280px) {
-        .lsgbook_desc {
-            font-size: 0.80em;
-            margin: 63vh auto auto auto;
-        }
-        .lmain {
-            background-position: center top;
-        }
-    }
-    @media screen and (max-width: 342px) {
-        .lsgbook_desc {
-            font-size: 0.80em;
-            margin: 63vh auto auto auto;
-        }
-        .lmain {
-            background-position: center top;
-        }
-    }
-    @media screen and (max-width: 399px) {
-        .lsgbook_desc {
-            font-size: 0.80em;
-            margin: 63vh auto auto auto;
-        }
-        .lmain {
-            background-position: center top;
-        }
-    }
-    @media screen and (max-width: 428px) {
-        .lsgbook_desc {
-            font-size: 0.80em;
-            margin: 63vh auto auto auto;
-        }
-        .lmain {
-            background-position: center top;
-        }
-    }
-    @media screen and (max-width: 434px) {
-        .lsgbook_desc {
-            font-size: 0.80em;
-            margin: 63vh auto auto auto;
-        }
-        .lmain {
-            background-position: center top;
-        }
-    }
-    @media screen and (max-width: 543px) {
-        .lsgbook_desc {
-            font-size: 0.80em;
-            margin: 63vh auto auto auto;
-        }
-        .lmain {
-            background-position: center top;
-        }
-    }
-    @media screen and (max-width: 780px) {
-        /*.lsbf20 {*/
-        /*    width: 60vw;*/
-        /*    height: auto;*/
-        /*}*/
-        /*.lsgbook_title {*/
-        /*    font-size: 1.75em;*/
-        /*}*/
-        .lsgbook_desc {
-            font-size: 0.80em;
-            margin: 63vh auto auto auto;
-        }
-        .lmain {
-            background-position: center top;
-        }
-    }
-    @media screen and (min-width: 658px) and (max-width: 954px) {
-        .lbottom {
-            height: 10vh;
-            top: 90%;
-        }
-    }
-    @media screen and (min-width: 955px) and (max-width: 1002px) {
-        .lbottom {
-            height: 11vh;
-            top: 89%;
-        }
-    }
-    @media screen and (min-width: 1003px) and (max-width: 1173px) {
-        .lbottom {
-            height: 12vh;
-            top: 88%;
-        }
-        .lmain {
-            background-size: cover;
-        }
-    }
-    @media screen and (min-width: 1174px) and (max-width: 1432px) {
-        .lbottom {
-            height: 14vh;
-            top: 86%;
-        }
-        .lmain {
-            background-size: cover;
-        }
-    }
-    @media screen and (min-width: 1433px) and (max-width: 1566px) {
-        .lbottom {
-            height: 17vh;
-            top: 83%;
-        }
-        .lmain {
-            background-size: cover;
-        }
-    }
-    @media screen and (min-width: 1567px) {
-        .ltop {
-            height: 70vh;
-        }
-        .lsbf20 {
-            height: 40vh;
-            width: auto;
-        }
-        .lmain {
-            background-size: cover;
-        }
-        .lsgbook_title {
-            font-size: 2.4em;
-        }
-        .lsgbook_desc {
-            font-size: 1.6em;
-        }
-    }
     #light-up {
         /*position: relative;
         height: 100vh;*/
