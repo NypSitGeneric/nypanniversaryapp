@@ -57,7 +57,7 @@
 }
 .slide-success{
     background:linear-gradient(to left, #222222, #ffd57a);
-    text-align:left;
+    text-align:center;
     color:#fff;
     box-shadow:0 0 0 3px #febf36;
     font-size: 1em;
@@ -83,8 +83,8 @@
         margin: 79% auto auto auto;
     }
     .slide-success{
-        text-align: left;
-        font-size: .8em;
+        text-align: center;
+        font-size: 1em;
     }
 }
 @media (orientation: landscape){
@@ -101,7 +101,7 @@
         margin: 41.5% auto auto auto;
     }
     .slide-success{
-        text-align: left;
-        font-size: .8em;
+        text-align: center;
+        font-size: 1em;
     }
 }
