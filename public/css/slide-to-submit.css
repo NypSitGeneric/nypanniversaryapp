@@ -91,10 +91,10 @@
     .slide-submit {
         background-size: cover;
         padding:1.0em 1.0em;
-        font-size:1em;
+        font-size:.6em;
         text-align:center;
         width: 50vh;
-        margin: 2.5% auto auto auto;
+        margin: 1.5% auto auto auto;
     }
     .tile-submit{
         text-align:center;
