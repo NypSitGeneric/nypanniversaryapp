@@ -74,13 +74,13 @@
 
 <style>
     .lmain {
-        height: 108vh;
+        /*height: 108vh;*/
         position: relative;
         text-align: center;
         font-family: Arial, Helvetica, sans-serif;
         background-color: #222222;
         background-repeat: no-repeat;
-        background-size: contain;
+        /*background-size: contain;*/
         /*background-position: center bottom;*/
     }
     .ltop {
@@ -126,20 +126,24 @@
     }
     @media (orientation: portrait) {
         .lmain {
-            background-image: url('nypimg/background-card.jpg');
+            height: 100vh;
+            width: 200%;
+            background-image: url('nypimg/background-web.jpg');
             background-position: center top;
+            transform: rotate(90deg);
+            background-size: contain;
         }
         .lsgbook_desc {
-            margin: 31% auto auto auto;
+            margin: 10% auto auto auto;
         }
     }
     @media (orientation: landscape) {
         .lmain {
+            height: 100vh;
+            width: 100%;
             background-image: url('nypimg/background-web.jpg');
-            background-position: center bottom;
-        }
-        .lsgbook_title {
-            font-size: 2.2em;
+            background-position: center top;
+            background-size: contain;
         }
         .lsgbook_desc {
             font-size: 1.45em;
