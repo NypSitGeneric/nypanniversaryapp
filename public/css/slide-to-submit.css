@@ -72,7 +72,7 @@
     .slide-submit {
         background-size: cover;
         background-repeat: no-repeat;
-        padding:1.5em 1.5em;
+        padding:1.0em 1.0em;
         font-size:1em;
         text-align:center;
         width: 27vh;
@@ -90,7 +90,7 @@
 @media (orientation: landscape){
     .slide-submit {
         background-size: cover;
-        padding:2em 1.5em;
+        padding:1.5em 1.0em;
         font-size:1em;
         text-align:center;
         width: 50vh;
