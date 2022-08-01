@@ -90,7 +90,7 @@
 @media (orientation: landscape){
     .slide-submit {
         background-size: cover;
-        padding:1.5em 1.0em;
+        padding:1.0em 1.0em;
         font-size:1em;
         text-align:center;
         width: 50vh;
@@ -98,7 +98,7 @@
     }
     .tile-submit{
         text-align:center;
-        margin: 20% auto auto auto;
+        margin: 30% auto auto auto;
     }
     .slide-success{
         text-align: center;
