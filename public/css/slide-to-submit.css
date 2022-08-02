@@ -77,17 +77,16 @@
         text-align:center;
         width: 25vh;
         margin-left: 15%;
-        margin-top: 65%;
+        margin-top: 67%;
         transform: rotate(90deg);
         transform-origin: 10% 10%;
     }
     .tile-submit{
         text-align:center;
-        margin-top: 65%;
+        margin-top: 70%;
         margin-left: 18%;
         transform: rotate(90deg);
     }
-
     .slide-submit-thumb{
         width:50px;
     }
