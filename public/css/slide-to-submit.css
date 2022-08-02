@@ -76,8 +76,7 @@
         font-size:1em;
         text-align:center;
         width: 27vh;
-        margin-top: 60%;
-        margin-left:1%;
+        margin-top: 30%;
         transform: rotate(90deg);
     }
     .tile-submit{
