@@ -89,6 +89,7 @@
     }
     .slide-submit-thumb{
         width:50px;
+        transform: rotate(90deg);
     }
     .slide-success{
         text-align: center;

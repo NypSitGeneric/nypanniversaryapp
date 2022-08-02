@@ -94,8 +94,8 @@
 				var pos = $(this).position();
 				if (window.innerHeight > window.innerWidth) {
 					offset = {
-						x: orig.changedTouches[0].pageX - pos.top,
-						y: orig.changedTouches[0].pageY - pos.bottom
+						x: orig.changedTouches[0].pageX - pos.left,
+						y: orig.changedTouches[0].pageY - pos.top
 					};
 				}else {
 					offset = {
@@ -109,7 +109,7 @@
 				var orig = e.originalEvent;
 				if (window.innerHeight > window.innerWidth) {
 					$(this).addClass('slide-submit-dragging').css({
-						bottom: orig.changedTouches[0].pageY - offset.y
+						left: orig.changedTouches[0].pageX - offset.x
 					});
 				}else {
 					$(this).addClass('slide-submit-dragging').css({
