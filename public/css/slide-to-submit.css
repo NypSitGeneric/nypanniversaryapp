@@ -73,18 +73,18 @@
         background-size: cover;
         background-repeat: no-repeat;
         padding:1.0em 1.0em;
-        font-size:1em;
+        font-size:.8em;
         text-align:center;
         width: 27vh;
-        margin-left: 16%;
-        margin-top: 65%;
+        margin-left: 15%;
+        margin-top: 67%;
         transform: rotate(90deg);
         transform-origin: 10% 10%;
     }
     .tile-submit{
         text-align:center;
-        margin-top: 80%;
-        margin-left: 20%;
+        margin-top: 85%;
+        margin-left: 18%;
         transform: rotate(90deg);
     }
     .slide-success{
