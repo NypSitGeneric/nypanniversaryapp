@@ -75,14 +75,17 @@
         padding:1.0em 1.0em;
         font-size:.8em;
         text-align:center;
-        width: 18vh;
+        width: 50vh;
         margin-left: 35%;
         margin-top: 45%;
+        transform: rotate(90deg);
+        transform-origin: 10% 10%;
     }
     .tile-submit{
         text-align:center;
         margin-top: 40%;
         margin-left: 47%;
+        transform: rotate(90deg);
     }
 
     .slide-submit-thumb{
@@ -91,6 +94,7 @@
     .slide-success{
         text-align: center;
         font-size: .8em;
+        transform: rotate(90deg);
     }
 }
 @media (orientation: landscape){
