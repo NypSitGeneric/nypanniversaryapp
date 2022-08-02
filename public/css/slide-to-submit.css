@@ -73,34 +73,24 @@
         background-size: cover;
         background-repeat: no-repeat;
         padding:1.0em 1.0em;
-        font-size:.8em;
+        font-size:.6em;
         text-align:center;
-        width: 27vh;
-        margin-left: 15%;
-        margin-top: 67%;
-        transform: rotate(90deg);
-        transform-origin: 10% 10%;
+        width: 18vh;
+        margin-left: 35%;
+        margin-top: 45%;
     }
     .tile-submit{
         text-align:center;
-        margin-top: 85.1%;
-        margin-left: 18.3%;
-        transform: rotate(90deg);
+        margin-top: 40%;
+        margin-left: 47%;
     }
-    .slide-submit-thumb:hover,.draggable{
-        transform: rotate(90deg);
-    }
-    .slide-submit-thumb:active{
-        transform: rotate(90deg);
-    }
+
     .slide-submit-thumb{
         width:50px;
-        transform: rotate(90deg);
     }
     .slide-success{
         text-align: center;
         font-size: .8em;
-        transform: rotate(90deg);
     }
 }
 @media (orientation: landscape){
