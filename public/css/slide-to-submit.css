@@ -60,7 +60,7 @@
     text-align:center;
     color:#fff;
     box-shadow:0 0 0 3px #febf36;
-    font-size: 1em;
+    font-size: .8em;
 }
 .slide-success .slide-submit-thumb{
     background:white;
@@ -76,15 +76,20 @@
         font-size:1em;
         text-align:center;
         width: 27vh;
-        margin: 0.8% auto auto auto;
+        margin-top: 60%;
+        margin-left:1%;
+        transform: rotate(90deg);
     }
     .tile-submit{
         text-align:center;
-        margin: 34.5% auto auto auto;
+        margin-top: 68%;
+        margin-left: 17%;
+        transform: rotate(90deg);
     }
     .slide-success{
         text-align: center;
-        font-size: 1em;
+        font-size: .8em;
+        transform: rotate(90deg);
     }
 }
 @media (orientation: landscape){
@@ -104,7 +109,7 @@
     }
     .slide-success{
         text-align: center;
-        font-size: 1em;
+        font-size: .8em;
     }
     .slide-submit-thumb{
         width: 50px;
