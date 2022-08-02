@@ -21,7 +21,7 @@
     display:inline-block
 }
 .tile-submit{
-    font-size:1em;
+    font-size:.8em;
     position:absolute;
     user-select:none;
     -moz-user-select:none;
@@ -100,7 +100,7 @@
     .tile-submit{
         text-align:center;
         margin-top: 41%;
-        margin-left: 47.5%;
+        margin-left: 47%;
     }
     .slide-success{
         text-align: center;
