@@ -91,7 +91,7 @@
     .slide-submit {
         background-size: cover;
         padding:1.0em 1.0em;
-        font-size:1em;
+        font-size:.8em;
         text-align:center;
         width: 50vh;
         margin-top: 45.5%;
@@ -99,8 +99,8 @@
     }
     .tile-submit{
         text-align:center;
-        margin-top: 41.5%;
-        margin-left: 49%;
+        margin-top: 41%;
+        margin-left: 47.5%;
     }
     .slide-success{
         text-align: center;
