@@ -76,14 +76,14 @@
         font-size:.8em;
         text-align:center;
         width: 25vh;
-        margin-left: 25%;
-        margin-top: 50%;
+        margin-left: 15%;
+        margin-top: 60%;
         transform: rotate(90deg);
         transform-origin: 10% 10%;
     }
     .tile-submit{
         text-align:center;
-        margin-top: 40%;
+        margin-top: 55%;
         margin-left: 20%;
         transform: rotate(90deg);
     }
