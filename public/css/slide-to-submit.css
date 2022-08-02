@@ -8,7 +8,7 @@
     text-align:center;
     padding:1.5em 1.0em;
     font-size:1em;
-    position:relative;
+    position:absolute;
     overflow:hidden;
     user-select:none;
     -moz-user-select:none;
@@ -22,7 +22,7 @@
 }
 .tile-submit{
     font-size:1em;
-    position:relative;
+    position:absolute;
     user-select:none;
     -moz-user-select:none;
     -webkit-user-select:none;
@@ -91,14 +91,16 @@
     .slide-submit {
         background-size: cover;
         padding:1.0em 1.0em;
-        font-size:.6em;
+        font-size:1em;
         text-align:center;
         width: 50vh;
-        margin: 1.5% auto auto auto;
+        margin-top: 45.5%;
+        margin-left: 38%;
     }
     .tile-submit{
         text-align:center;
-        margin: 31% auto auto auto;
+        margin-top: 41.5%;
+        margin-left: 49%;
     }
     .slide-success{
         text-align: center;
