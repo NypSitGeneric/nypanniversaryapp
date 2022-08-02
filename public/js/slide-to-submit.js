@@ -94,7 +94,7 @@
 				var pos = $(this).position();
 				if (window.innerHeight > window.innerWidth) {
 					offset = {
-						x: orig.changedTouches[0].pageX - pos.left,
+						x: orig.changedTouches[0].pageX - pos.bottom,
 						y: orig.changedTouches[0].pageY - pos.bottom
 					};
 				}else {
