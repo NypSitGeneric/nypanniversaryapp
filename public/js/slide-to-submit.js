@@ -92,17 +92,30 @@
 			var start = function(e) {
 				var orig = e.originalEvent;
 				var pos = $(this).position();
-				offset = {
-					x: orig.changedTouches[0].pageX - pos.left,
-					y: orig.changedTouches[0].pageY - pos.top
-				};
+				if (window.innerHeight > window.innerWidth) {
+					offset = {
+						x: orig.changedTouches[0].pageX - pos.bottom,
+						y: orig.changedTouches[0].pageY - pos.bottom
+					};
+				}else {
+					offset = {
+						x: orig.changedTouches[0].pageX - pos.left,
+						y: orig.changedTouches[0].pageY - pos.top
+					};
+				}
 			};
 			var moveItem = function(e) {
 				e.preventDefault();
 				var orig = e.originalEvent;
-				$(this).addClass('slide-submit-dragging').css({
-					left: orig.changedTouches[0].pageX - offset.x
-				});
+				if (window.innerHeight > window.innerWidth) {
+					$(this).addClass('slide-submit-dragging').css({
+						top: orig.changedTouches[0].pageX - offset.x
+					});
+				}else {
+					$(this).addClass('slide-submit-dragging').css({
+						left: orig.changedTouches[0].pageX - offset.x
+					});
+				}
 			};
 			var releaseItem = function(e){
 				releaseSlideSubmit();
