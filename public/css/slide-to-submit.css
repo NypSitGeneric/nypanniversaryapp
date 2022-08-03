@@ -18,7 +18,7 @@
     /*margin: 78.5vh auto auto auto;*/
 }
 .slide-submit-text{
-    display:inline-block
+    display: inline-block;
 }
 .tile-submit{
     font-size:.8em;
@@ -103,7 +103,7 @@
         background-repeat: no-repeat;
         padding:1.0em 1.0em;
         font-size:.8em;
-        text-align:center;
+        text-align: center;
         width: 5vh;
         height: 25vh;
         margin-left: 10%;
@@ -116,9 +116,11 @@
         transform: rotate(90deg);
     }
     .slide-submit-text {
-        padding-top: 50%;
+        margin-top: 400%;
+        width: 150%;
+        height: 40%;
+        transform-origin: 20% 20%;
         transform: rotate(90deg);
-        transform-origin: 5% 5%;
     }
     .slide-submit-thumb{
         height:45px;
