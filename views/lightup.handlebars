@@ -14,7 +14,7 @@
                <div class="slide-submit-thumb"></div>
            </div>
         </form>
-        <p class="lsgbook_desc" id="msg" hidden="true">Tile {{id}} had been Light Up. Thank you for your participation.</p>
+        <div class="lsgbook_desc" id="msg" hidden="true">Tile {{id}} had been Light Up. <br>Thank you for your participation.</div>
 </div>
 
 <script>
@@ -74,11 +74,12 @@
             /*width: 200%;*/
         }
         .lsgbook_desc {
+            width: 100%;
             font-size: .8em;
-            margin-left: 5%;
-            margin-top: 10%;
+            margin-left: 9%;
+            padding-left: 65%;
             transform: rotate(90deg);
-            transform-origin: 10% 10%;
+            transform-origin: 5% 5%;
         }
     }
     @media (orientation: landscape) {
@@ -97,7 +98,7 @@
         }
         .lsgbook_desc {
             font-size: 1.45em;
-            margin: 10% auto auto auto;
+            padding-top: 45%;
         }
     }
 
