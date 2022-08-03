@@ -68,7 +68,7 @@
     color:#ffd57a;
     pointer-events:none
 }
-@media (orientation: portrait){
+/*@media (orientation: portrait){
     .slide-submit {
         background-size: cover;
         background-repeat: no-repeat;
@@ -94,6 +94,30 @@
         text-align: center;
         font-size: .8em;
         transform: rotate(90deg);
+    }
+}*/
+@media (orientation: portrait){
+    .slide-submit {
+        background-size: cover;
+        background-repeat: no-repeat;
+        padding:1.0em 1.0em;
+        font-size:.8em;
+        text-align:center;
+        width: 25vh;
+        margin-left: 15%;
+        margin-top: 67.5%;
+    }
+    .tile-submit{
+        text-align:center;
+        margin-top: 86%;
+        margin-left: 18%;
+    }
+    .slide-submit-thumb{
+        width:50px;
+    }
+    .slide-success{
+        text-align: center;
+        font-size: .8em;
     }
 }
 @media (orientation: landscape){
