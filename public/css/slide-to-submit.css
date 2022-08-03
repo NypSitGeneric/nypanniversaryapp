@@ -115,8 +115,7 @@
         transform: rotate(90deg);
     }
     .slide-submit-thumb{
-        width:50px;
-        transform: rotate(90deg);
+        height:40px;
     }
     .slide-success{
         text-align: center;
