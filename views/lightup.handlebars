@@ -61,16 +61,33 @@
     .lsgbook_desc {
         font-size: 1em;
         color: white;
-        /*margin: 31% auto auto auto;*/
     }
 
-    @media (orientation: portrait) {
+   /* @media (orientation: portrait) {
         .lmain {
             background-image: url('nypimg/background-web-Vertical.jpg');
             background-repeat: no-repeat;
             height: 100vh;
             width: 100%;
             background-size: contain;
+            !*width: 200%;*!
+        }
+        .lsgbook_desc {
+            width: 150%;
+            font-size: .8em;
+            margin-left: 9%;
+            padding-left: 45%;
+            transform: rotate(90deg);
+            transform-origin: 5% 5%;
+        }
+    }*/
+    @media (orientation: portrait) {
+        .lmain {
+            background-image: url('nypimg/background-card.jpg');
+            background-repeat: no-repeat;
+            height: 100vh;
+            width: 100%;
+            background-size: cover;
             /*width: 200%;*/
         }
         .lsgbook_desc {

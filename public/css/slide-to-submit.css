@@ -96,7 +96,7 @@
         transform: rotate(90deg);
     }
 }*/
-@media (orientation: portrait){
+/*@media (orientation: portrait){
     .slide-submit {
         background:linear-gradient(to bottom, #222222, #ffd57a);
         background-size: cover;
@@ -129,7 +129,31 @@
     .slide-success{
         text-align: center;
         font-size: .8em;
-        /*transform: rotate(90deg);*/
+        !*transform: rotate(90deg);*!
+    }
+}*/
+@media (orientation: portrait){
+    .slide-submit {
+        background-size: cover;
+        background-repeat: no-repeat;
+        padding:1.0em 1.0em;
+        font-size:.8em;
+        text-align:center;
+        width: 25vh;
+        margin-left: 33%;
+        margin-top: 118%;
+    }
+    .tile-submit{
+        text-align:center;
+        margin-top: 100%;
+        margin-left: 50%;
+    }
+    .slide-submit-thumb{
+        width:50px;
+    }
+    .slide-success{
+        text-align: center;
+        font-size: .8em;
     }
 }
 @media (orientation: landscape){
