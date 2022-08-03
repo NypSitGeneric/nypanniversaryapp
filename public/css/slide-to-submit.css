@@ -121,7 +121,7 @@
     .slide-success{
         text-align: center;
         font-size: .8em;
-        transform: rotate(90deg);
+        /*transform: rotate(90deg);*/
     }
 }
 @media (orientation: landscape){
