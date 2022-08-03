@@ -92,7 +92,7 @@
 			var start = function(e) {
 				var orig = e.originalEvent;
 				var pos = $(this).position();
-				if (window.innerHeight > window.innerWidth) {
+				if (isPortrait()) {
 					offset = {
 						x: orig.changedTouches[0].pageX - pos.left,
 						y: orig.changedTouches[0].pageY - pos.top
@@ -107,7 +107,7 @@
 			var moveItem = function(e) {
 				e.preventDefault();
 				var orig = e.originalEvent;
-				if (window.innerHeight > window.innerWidth) {
+				if (isPortrait()) {
 					$(this).addClass('slide-submit-dragging').css({
 						top: orig.changedTouches[0].pageY - offset.y
 					});
@@ -120,6 +120,10 @@
 			var releaseItem = function(e){
 				releaseSlideSubmit();
 				e.preventDefault();
+			};
+
+			const isPortrait = function () {
+				return window.innerHeight > window.innerWidth;
 			};
 			this.bind("touchstart", start);
 			this.bind("touchmove", moveItem);
