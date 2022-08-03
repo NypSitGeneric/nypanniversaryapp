@@ -109,7 +109,7 @@
 				var orig = e.originalEvent;
 				if (window.innerHeight > window.innerWidth) {
 					$(this).addClass('slide-submit-dragging').css({
-						left: orig.changedTouches[0].pageX - offset.x
+						top: orig.changedTouches[0].pageY - offset.y
 					});
 				}else {
 					$(this).addClass('slide-submit-dragging').css({
