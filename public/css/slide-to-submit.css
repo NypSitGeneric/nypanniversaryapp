@@ -98,6 +98,7 @@
 }*/
 @media (orientation: portrait){
     .slide-submit {
+        background:linear-gradient(to bottom, #222222, #ffd57a);
         background-size: cover;
         background-repeat: no-repeat;
         padding:1.0em 1.0em;
