@@ -103,7 +103,7 @@
         padding:1.0em 1.0em;
         font-size:.8em;
         text-align:center;
-        width: 8vh;
+        width: 10vh;
         height: 25vh;
         margin-left: 10%;
         margin-top: 63%;
@@ -115,7 +115,7 @@
         transform: rotate(90deg);
     }
     .slide-submit-thumb{
-        height:40px;
+        height:45px;
     }
     .slide-success{
         text-align: center;
