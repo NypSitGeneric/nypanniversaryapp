@@ -116,9 +116,9 @@
         transform: rotate(90deg);
     }
     .slide-submit-text {
-        margin-top: 400%;
+        margin-top: 500%;
         width: 150%;
-        height: 40%;
+        height: 45%;
         transform-origin: 20% 20%;
         transform: rotate(90deg);
     }
