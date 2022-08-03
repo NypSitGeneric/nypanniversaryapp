@@ -112,13 +112,15 @@
         text-align:center;
         margin-top: 86%;
         margin-left: 18%;
+        transform: rotate(90deg);
     }
     .slide-submit-thumb{
-        height: 50px;
+        height: 48px;
     }
     .slide-success{
         text-align: center;
         font-size: .8em;
+        transform: rotate(90deg);
     }
 }
 @media (orientation: landscape){
