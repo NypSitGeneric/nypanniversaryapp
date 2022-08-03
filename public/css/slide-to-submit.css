@@ -105,8 +105,8 @@
         text-align:center;
         width: 10vh;
         height: 25vh;
-        margin-left: 15%;
-        margin-top: 67.5%;
+        margin-left: 10%;
+        margin-top: 70%;
     }
     .tile-submit{
         text-align:center;
@@ -114,7 +114,7 @@
         margin-left: 18%;
     }
     .slide-submit-thumb{
-        height: 65px;
+        height: 50px;
     }
     .slide-success{
         text-align: center;
