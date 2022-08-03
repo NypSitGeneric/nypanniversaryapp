@@ -116,7 +116,9 @@
         transform: rotate(90deg);
     }
     .slide-submit-text {
+        padding-top: 50%;
         transform: rotate(90deg);
+        transform-origin: 5% 5%;
     }
     .slide-submit-thumb{
         height:45px;
