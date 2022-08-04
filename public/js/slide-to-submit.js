@@ -49,7 +49,7 @@
 					$('.slide-submit-dragging').removeClass('slide-submit-dragging');
 				}
 			}
-			function releaseSlideSubmitPortrait() {
+			function releaseSlideSubmitPortrait() { //Not Using this function.
 				// If draggable item exitst
 				if($('.slide-submit-dragging').length){
 
@@ -126,7 +126,7 @@
 			var start = function(e) {
 				var orig = e.originalEvent;
 				var pos = $(this).position();
-				if (isPortrait()) {
+				/*if (isPortrait()) {
 					offset = {
 						x: orig.changedTouches[0].pageX - pos.left,
 						y: orig.changedTouches[0].pageY - pos.top
@@ -136,12 +136,16 @@
 						x: orig.changedTouches[0].pageX - pos.left,
 						y: orig.changedTouches[0].pageY - pos.top
 					};
-				}
+				}*/
+				offset = {
+					x: orig.changedTouches[0].pageX - pos.left,
+					y: orig.changedTouches[0].pageY - pos.top
+				};
 			};
 			var moveItem = function(e) {
 				e.preventDefault();
 				var orig = e.originalEvent;
-				if (isPortrait()) {
+				/*if (isPortrait()) {
 					$(this).addClass('slide-submit-dragging').css({
 						top: orig.changedTouches[0].pageY - offset.y
 					});
@@ -149,15 +153,19 @@
 					$(this).addClass('slide-submit-dragging').css({
 						left: orig.changedTouches[0].pageX - offset.x
 					});
-				}
+				}*/
+
+				$(this).addClass('slide-submit-dragging').css({
+					left: orig.changedTouches[0].pageX - offset.x
+				});
 			};
 			var releaseItem = function(e){
-				if (isPortrait()) {
+				/*if (isPortrait()) {
 					releaseSlideSubmitPortrait();
 				}else{
 					releaseSlideSubmit();
-				}
-
+				}*/
+				releaseSlideSubmit();
 				e.preventDefault();
 			};
 
