@@ -179,12 +179,27 @@
         width: 50px;
     }
 }
-/*
-@media screen and (max-width: 360px) {
+@media (orientation: portrait) and (max-height: 790px) {
     .slide-submit {
-        text-align: right;
+        background-size: cover;
+        background-repeat: no-repeat;
+        padding:1.0em 1.0em;
+        font-size:.8em;
+        text-align:center;
+        width: 25vh;
+        margin-left: 26%;
+        margin-top: 133%;
+    }
+    .tile-submit{
+        text-align:center;
+        margin-top: 110%;
+        margin-left: 43%;
+    }
+    .slide-submit-thumb{
+        width:50px;
     }
     .slide-success{
-        text-align:left;
+        text-align: center;
+        font-size: .8em;
     }
-}*/
+}
