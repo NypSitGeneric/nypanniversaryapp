@@ -7,7 +7,7 @@
            <input type="hidden" id="id" name="id" value="{{ id }}">
            <input type="submit" value="Press to Light Up Tile {{ id }}" class="btn" hidden="true">
             <div class="tile-submit">
-                Tile {{ id }}
+                Tile {{#pad id}}{{/pad}}
             </div>
            <div id="lightUpBtn" class="slide-submit">
                <div class="slide-submit-text">Slide</div>
@@ -44,6 +44,7 @@
         submitDelay: 2000, // Delay for showing successText
         graceZone: 100 // Pixels from the right that is accepted as a full side
     });
+
 </script>
 
 <style>

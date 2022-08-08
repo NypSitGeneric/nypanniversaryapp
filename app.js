@@ -17,6 +17,9 @@ app.engine('handlebars', exphbs.engine({
 	helpers: {
 		add: function (index) {
 			return index + 1;
+		},
+		pad: function (number) {
+			return number.toString().padStart(4, '0');
 		}
 	}
 }));
