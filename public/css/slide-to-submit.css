@@ -179,7 +179,7 @@
         width: 50px;
     }
 }
-@media (orientation: portrait) and (max-height: 790px) {
+@media (orientation: portrait) and (max-height: 790px) and (max-width: 360px){
     .slide-submit {
         background-size: cover;
         background-repeat: no-repeat;
