@@ -5,7 +5,7 @@
         <div class="grid">
             {{#each tiles}}
                 <div id="{{#add @index }}{{/add}}" class="inner {{#if this}}flip{{/if}}">
-                    <div class="front">&nbsp;</div>
+                    <div class="front"></div>
 <!--                    <div class="front"><p>{{#add @index}}{{/add}}</p></div>-->
                     <div class="back"><img src="/nyptiles/nyp30_{{#add @index}}{{/add}}.png" alt="loading"/></div>
                 </div>
@@ -34,7 +34,7 @@
     }
     p{
         font-size: 8px;
-        color: white;
+        color: red;
         text-align: center;
     }
     .inner {
