@@ -6,6 +6,7 @@
             {{#each tiles}}
                 <div id="{{#add @index }}{{/add}}" class="inner {{#if this}}flip{{/if}}">
                     <div class="front">&nbsp;</div>
+<!--                    <div class="front"><p>{{#add @index}}{{/add}}</p></div>-->
                     <div class="back"><img src="/nyptiles/nyp30_{{#add @index}}{{/add}}.png" alt="loading"/></div>
                 </div>
             {{/each}}
@@ -27,10 +28,15 @@
         display: grid;
         grid-template-columns: repeat(35, auto);
         grid-template-rows: repeat(40, auto);
-        height: 34.2vh;
+        /*height: 20vh;*/
+        height:34.2vh;
         width: 100%;
     }
-
+    p{
+        font-size: 8px;
+        color: white;
+        text-align: center;
+    }
     .inner {
         width: 100%;
         height: 100%;
@@ -41,12 +47,15 @@
     .front, .back {
         position: absolute;
         width: 100%;
+        /*height:14px;*/
         -webkit-backface-visibility: hidden;
         backface-visibility: hidden;
     }
 
     .front {
         background-color: blue;
+        height: 10px;
+        width: 58px;
     }
 
     .back {
