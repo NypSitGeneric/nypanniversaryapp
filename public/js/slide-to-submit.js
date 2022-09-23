@@ -49,7 +49,43 @@
 					$('.slide-submit-dragging').removeClass('slide-submit-dragging');
 				}
 			}
+			function releaseSlideSubmitPortrait() { //Not Using this function.
+				// If draggable item exitst
+				if($('.slide-submit-dragging').length){
 
+					var newpos_y = $('.slide-submit-dragging').position().top,
+						max_y = $('.slide-submit-dragging').parent().outerHeight(),
+						accepted_y = max_y - options.graceZone;
+
+					if(newpos_y == '0'){
+						// You clicked instead of dragged. Lets give you a hint.
+						$('.slide-submit-dragging').animate({'top':'10px'},150);
+						$('.slide-submit-dragging').animate({'top':'0px'},100);
+						$('.slide-submit-dragging').animate({'top':'10px'},150);
+						$('.slide-submit-dragging').animate({'top':'0px'},100);
+
+					} else if (newpos_y >= accepted_y) {
+						// Dragged all the way! Lets check validity
+
+						$('.slide-submit-dragging').parent().find('.slide-submit-text').text(options.successText);
+						$('.slide-submit-dragging').addClass('slide-submit-delay').animate({
+							'top': max_y - $('.slide-submit-dragging').outerHeight()
+						}, 150);
+						$('.slide-submit-dragging').parent().addClass('slide-success');
+						setTimeout(function(){
+							$('.slide-submit-delay').parents('form').find('input[type=submit]').click();
+							$('.slide-submit-delay').removeClass('slide-submit-delay');
+						}, options.submitDelay);
+					} else {
+						// Didn't drag enough, reset.
+						$('.slide-submit-dragging').animate({
+							'top': '0'
+						}, 150);
+					}
+					// Remove class from dragged item
+					$('.slide-submit-dragging').removeClass('slide-submit-dragging');
+				}
+			}
 		// Mouse dragging
 		(function($) {
 			$.fn.slideSubmit = function(opt) {
@@ -75,8 +111,6 @@
 				}).on("mouseup", function(e) {
 					//releaseSlideSubmit();
 				});
-
-
 			}
 		})(jQuery);
 		$('.slide-submit-thumb').slideSubmit();
@@ -92,6 +126,17 @@
 			var start = function(e) {
 				var orig = e.originalEvent;
 				var pos = $(this).position();
+				/*if (isPortrait()) {
+					offset = {
+						x: orig.changedTouches[0].pageX - pos.left,
+						y: orig.changedTouches[0].pageY - pos.top
+					};
+				}else {
+					offset = {
+						x: orig.changedTouches[0].pageX - pos.left,
+						y: orig.changedTouches[0].pageY - pos.top
+					};
+				}*/
 				offset = {
 					x: orig.changedTouches[0].pageX - pos.left,
 					y: orig.changedTouches[0].pageY - pos.top
@@ -100,13 +145,32 @@
 			var moveItem = function(e) {
 				e.preventDefault();
 				var orig = e.originalEvent;
+				/*if (isPortrait()) {
+					$(this).addClass('slide-submit-dragging').css({
+						top: orig.changedTouches[0].pageY - offset.y
+					});
+				}else {
+					$(this).addClass('slide-submit-dragging').css({
+						left: orig.changedTouches[0].pageX - offset.x
+					});
+				}*/
+
 				$(this).addClass('slide-submit-dragging').css({
 					left: orig.changedTouches[0].pageX - offset.x
 				});
 			};
 			var releaseItem = function(e){
+				/*if (isPortrait()) {
+					releaseSlideSubmitPortrait();
+				}else{
+					releaseSlideSubmit();
+				}*/
 				releaseSlideSubmit();
 				e.preventDefault();
+			};
+
+			const isPortrait = function () {
+				return window.innerHeight > window.innerWidth;
 			};
 			this.bind("touchstart", start);
 			this.bind("touchmove", moveItem);

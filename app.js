@@ -17,6 +17,9 @@ app.engine('handlebars', exphbs.engine({
 	helpers: {
 		add: function (index) {
 			return index + 1;
+		},
+		pad: function (number) {
+			return number.toString().padStart(4, '0');
 		}
 	}
 }));
@@ -89,6 +92,30 @@ app.post("/lightup", (req, res) => {
 
 app.get("/admin", (req, res) => {
 	res.render("admin", {title: "NYP 30th Anniversary App Admin"});
+});
+
+app.get("/assigntiles", (req, res) => {
+	let isFlipped = true;
+	let id=0;
+
+	do {
+
+		let key = Object.keys(flippedTiles).filter(key => flippedTiles[key] === false);
+		if (key.length <= 0){
+			return res.render("thankyou", {id: id, title: "NYP 30th Anniversary"});
+		}
+
+		id = Math.floor((Math.random() * 1400) + 1);
+		if (flippedTiles[id]==false){
+			isFlipped = false;
+		}
+
+		key = Object.keys(flippedTiles).filter(key => flippedTiles[key] === false);
+		if (key.length <= 0){
+			return res.render("thankyou", {id: id, title: "NYP 30th Anniversary"});
+		}
+	}while(isFlipped);
+	res.render("lightup", {id: id, title: `NYP 30th Anniversary Tile ${id}`});
 });
 
 app.get("/disabled", (req, res) => {

@@ -1,46 +1,20 @@
+<meta id="viewport" name="viewport" content="initial-scale=1.0; user-scalable=0; minimum-scale=1.0; maximum-scale=1.0" />
 <link rel="stylesheet" href="/css/slide-to-submit.css">
 <script src="/js/jquery.js"></script>
 <script src="/js/slide-to-submit.js"></script>
 <div class="lmain">
-    <div class="ltop">
-<!--        <img class="lnyp30" src="/nypimg/corp_nyp_logo.png"/>-->
-        <div style="margin:3vh 2vh;">
-<!--            <p class="lsgbook">
-                <span class="lsgbook_title">Singapore Book of Records</span>
-                <br/>
-                <span class="lsgbook_desc">Largest Mass Digital Activation Of A Screen Projection</span>
-            </p>-->
-<!--            <form action="/lightup" method="post">-->
-<!--                <input type="hidden" id="id" name="id" value="{{ id }}">-->
-<!--                <input id="light-up-btn" type="submit" value="Press to Light Up Tile {{ id }}" class="btn">-->
-<!--            </form>-->
-            <br/>
-<!--            <form action="/lightup" method="post">-->
-<!--                <input type="hidden" id="id" name="id" value="{{ id }}">-->
-<!--                <input type="submit" value="Press to Light Up Tile {{ id }}" class="btn" hidden="true">-->
-<!--                <div class="slide-submit">-->
-<!--                    <div class="slide-submit-text">Slide To Light Up Tile {{ id }}</div>-->
-<!--                    <div class="slide-submit-thumb">»</div>-->
-<!--                </div>-->
-<!--            </form>-->
-            <form action="/lightup" method="post">
-               <input type="hidden" id="id" name="id" value="{{ id }}">
-               <input type="submit" value="Press to Light Up Tile {{ id }}" class="btn" hidden="true">
-                <div class="tile-submit">
-                    <div>Tile {{ id }}</div>
-                </div>
-               <div id="lightUpBtn" class="slide-submit">
-                   <div class="slide-submit-text">Slide > ></div>
-                   <div class="slide-submit-thumb"></div>
-               </div>
-            </form>
-            <p class="lsgbook_desc" id="msg" hidden="true">Tile {{id}} had been Light Up. Thank you for your participation.</p>
-        </div>
-
-    </div>
-<!--    <div class="lbottom">-->
-<!--        <div class="lpowered">Powered By<img src="/nypimg/logo_nyp.png"/></div>-->
-<!--    </div>-->
+        <form action="/lightup" method="post">
+           <input type="hidden" id="id" name="id" value="{{ id }}">
+           <input type="submit" value="Press to Light Up Tile {{ id }}" class="btn" hidden="true">
+            <div class="tile-submit">
+                Tile {{#pad id}}{{/pad}}
+            </div>
+           <div id="lightUpBtn" class="slide-submit" hidden="true">
+               <div class="slide-submit-text">Slide</div>
+               <div class="slide-submit-thumb"></div>
+           </div>
+        </form>
+        <div class="lsgbook_desc" id="msg" hidden="true">Tile {{id}} had been Light Up. <br>Thank you for your participation.</div>
 </div>
 
 <script>
@@ -70,117 +44,75 @@
         submitDelay: 2000, // Delay for showing successText
         graceZone: 100 // Pixels from the right that is accepted as a full side
     });
+
 </script>
 
 <style>
     .lmain {
-        height: 108vh;
-        position: relative;
+        /*height: 100vh;*/
+        /*position: absolute;*/
         text-align: center;
         font-family: Arial, Helvetica, sans-serif;
-        background-color: #222222;
-        background-repeat: no-repeat;
-        background-size: contain;
+        background-color: white;
+        /*background-repeat: no-repeat;*/
+        /*background-size: cover;*/
         /*background-position: center bottom;*/
     }
-    .ltop {
-        width: 100%;
-        height: 80vh;
-        position: absolute;
-        top: 0%;
-        padding-top: 2vh;
-    }
-    .lbottom {
-        width: 100%;
-        height: 20vh;
-        position: absolute;
-        bottom: 0;
-        top: 80%;
-        padding-top: 0vh;
-    }
-    .lnyp30 {
-        height: 30vh;
-        width: auto;
-    }
-    .lsgbook {
-        color: #754C24;
-    }
-    .lsgbook_title {
-        font-size: 1.5em;
-        font-weight: bold;
-        text-transform: uppercase;
-        font-family: 'Times New Roman', Times, serif;
-    }
+
     .lsgbook_desc {
         font-size: 1em;
         color: white;
-        /*margin: 31% auto auto auto;*/
     }
-    .lpowered {
-        padding-top: 1em;
-        width: auto;
-        height: 9vh;
-        padding-bottom: 1em;
-        font-size: 1em;
-        color: white;
-    }
-    @media (orientation: portrait) {
+
+   /* @media (orientation: portrait) {
         .lmain {
-            background-image: url('nypimg/background-card.jpg');
-            background-position: center top;
+            background-image: url('nypimg/background-web-Vertical.jpg');
+            background-repeat: no-repeat;
+            height: 100vh;
+            width: 100%;
+            background-size: contain;
+            !*width: 200%;*!
         }
         .lsgbook_desc {
-            margin: 31% auto auto auto;
+            width: 150%;
+            font-size: .8em;
+            margin-left: 9%;
+            padding-left: 45%;
+            transform: rotate(90deg);
+            transform-origin: 5% 5%;
+        }
+    }*/
+    @media (orientation: portrait) {
+        .lmain {
+            background-image: url('nypimg/background-web-Portrait.jpg');
+            background-repeat: no-repeat;
+            height: 100vh;
+            width: 100%;
+            background-size: 115% auto;
+            background-position: center top;
+            /*width: 200%;*/
+        }
+        .lsgbook_desc {
+            font-size: .9em;
+            padding-top: 136%;
+            padding-left: 4%;
         }
     }
     @media (orientation: landscape) {
         .lmain {
             background-image: url('nypimg/background-web.jpg');
-            background-position: center bottom;
-        }
-        .lsgbook_title {
-            font-size: 2.2em;
+            height: 108vh;
+            width: auto;
+            background-repeat: no-repeat;
+            background-size: cover;
+            /*background-position: center top;*/
+            /*background-size: 50% 50%;*/
+            /*width: 100%;*/
         }
         .lsgbook_desc {
-            font-size: 1.45em;
-            margin: 10% auto auto auto;
+            font-size: 1em;
+            padding-top: 45%;
         }
-    }
-
-    #light-up {
-        /*position: relative;
-        height: 100vh;*/
-        font-weight: bold;
-        margin: 0px;
-        /*height: 100vh;*/
-        height: 100%;
-        width: 100%;
-        text-align: center;
-        font-family: Arial, Helvetica, sans-serif;
-        background-image: url('nypimg/bkgd_red_portrait.png');
-        background-repeat: no-repeat;
-        background-size: contain;/*cover*/
-        background-position: bottom;
-    }
-
-    #light-up-btn {
-        text-align: center;
-        text-transform: uppercase;
-        font-size: 1.2rem;
-        padding: 2vh 4vh;
-        color: #f2f2f2;
-        background-image: url('nypimg/btn_blue.png');
-        background-repeat: no-repeat;
-        background-position: center center;
-        margin: 4vh 0vh 0vh;
-        border: solid 3px #f2f2f2;
-        border-radius: 45px;
-        box-shadow: 0 8px 16px 0 rgba(0,0,0,0.55), 0 6px 20px 0 rgba(0,0,0,0.19);
-    }
-    #light-up-btn:hover, #light-up-btn:active {
-        background-image: url('nypimg/btn_gray.png');
-        border-color: #333333;
-        color: gray;
     }
 
 </style>
