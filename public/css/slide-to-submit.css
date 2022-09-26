@@ -136,7 +136,7 @@
     .slide-submit {
         background-size: cover;
         background-repeat: no-repeat;
-        padding:1.3em 1.3em;
+        padding:1.0em 1.0em;
         font-size:.8em;
         text-align:center;
         width: 24vh;
@@ -145,7 +145,7 @@
     }
     .tile-submit{
         text-align:center;
-        margin-top: 111%;
+        margin-top: 110%;
         margin-left: 22%;
         font-size:2.0em;
     }
