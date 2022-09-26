@@ -1,9 +1,9 @@
 .slide-submit {
-    background:linear-gradient(to right, #222222, #ffd57a);
+    background:linear-gradient(to right, #222222, white);
     /*background-image: url('/nypimg/btn_slide2.png');*/
     background-size: cover;
     color:white; /*Text Color */
-    box-shadow:0 0 0 3px #f7b525; /* The Border Color*/
+    box-shadow:0 0 0 3px white; /* The Border Color*/
     border-radius:30px;
     text-align:center;
     padding:1.5em 1.0em;
@@ -21,7 +21,7 @@
     display: inline-block;
 }
 .tile-submit{
-    font-size:.8em;
+
     position:absolute;
     user-select:none;
     -moz-user-select:none;
@@ -56,7 +56,7 @@
     cursor:grabbing
 }
 .slide-success{
-    background:linear-gradient(to left, #222222, #ffd57a);
+    background:linear-gradient(to left, #222222, white);
     text-align:center;
     color:#fff;
     box-shadow:0 0 0 3px #febf36;
@@ -136,17 +136,18 @@
     .slide-submit {
         background-size: cover;
         background-repeat: no-repeat;
-        padding:1.0em 1.0em;
+        padding:1.3em 1.3em;
         font-size:.8em;
         text-align:center;
         width: 24vh;
-        margin-left: 26%;
-        margin-top: 135%;
+        margin-left: 55%;
+        margin-top: 110%;
     }
     .tile-submit{
         text-align:center;
-        margin-top: 125%;
-        margin-left: 43%;
+        margin-top: 111%;
+        margin-left: 22%;
+        font-size:2.0em;
     }
     .slide-submit-thumb{
         width:50px;
@@ -159,17 +160,18 @@
 @media (orientation: landscape){
     .slide-submit {
         background-size: cover;
-        padding:1.0em 1.0em;
+        padding:1.5em 1.5em;
         font-size:.8em;
         text-align:center;
         width: 50vh;
-        margin-top: 45.5%;
-        margin-left: 38%;
+        margin-top: 29%;
+        margin-left: 63%;
     }
     .tile-submit{
         text-align:center;
-        margin-top: 41%;
-        margin-left: 47%;
+        margin-top: 41.5%;
+        margin-left: 27%;
+        font-size:3.8em;
     }
     .slide-success{
         text-align: center;

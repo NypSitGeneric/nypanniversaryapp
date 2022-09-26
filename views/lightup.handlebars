@@ -7,14 +7,16 @@
            <input type="hidden" id="id" name="id" value="{{ id }}">
            <input type="submit" value="Press to Light Up Tile {{ id }}" class="btn" hidden="true">
             <div class="tile-submit">
-                Tile {{#pad id}}{{/pad}}
+               <strong> {{#pad id}}{{/pad}} </strong>
             </div>
            <div id="lightUpBtn" class="slide-submit" hidden="true">
                <div class="slide-submit-text">Slide</div>
                <div class="slide-submit-thumb"></div>
            </div>
         </form>
-        <div class="lsgbook_desc" id="msg" hidden="true">Tile {{id}} had been Light Up. <br>Thank you for your participation.</div>
+        <div class="lsgbook_desc" id="msg" hidden="true">
+            Tile {{id}} has been light up. <br>Thank you for being part of this significant milestone.
+        </div>
 </div>
 
 <script>
@@ -52,7 +54,7 @@
         /*height: 100vh;*/
         /*position: absolute;*/
         text-align: center;
-        font-family: Arial, Helvetica, sans-serif;
+        font-family:  Century Gothic,CenturyGothic,AppleGothic,sans-serif;
         background-color: white;
         /*background-repeat: no-repeat;*/
         /*background-size: cover;*/
@@ -61,7 +63,8 @@
 
     .lsgbook_desc {
         font-size: 1em;
-        color: white;
+        color: black;
+        font-family:  Century Gothic,CenturyGothic,AppleGothic,sans-serif;
     }
 
    /* @media (orientation: portrait) {
@@ -84,23 +87,23 @@
     }*/
     @media (orientation: portrait) {
         .lmain {
-            background-image: url('nypimg/background-web-Portrait.jpg');
+            background-image: url('nypimg/background-web-Portrait.png');
             background-repeat: no-repeat;
-            height: 100vh;
+            height: 140vh;
             width: 100%;
-            background-size: 115% auto;
+            background-size:cover;
             background-position: center top;
             /*width: 200%;*/
         }
         .lsgbook_desc {
             font-size: .9em;
-            padding-top: 136%;
-            padding-left: 4%;
+            padding-top: 115%;
+            padding-left: 30%;
         }
     }
     @media (orientation: landscape) {
         .lmain {
-            background-image: url('nypimg/background-web.jpg');
+            background-image: url('nypimg/background-web.png');
             height: 108vh;
             width: auto;
             background-repeat: no-repeat;
@@ -111,7 +114,8 @@
         }
         .lsgbook_desc {
             font-size: 1em;
-            padding-top: 45%;
+            padding-top: 25%;
+            padding-left: 50%;
         }
     }
 
