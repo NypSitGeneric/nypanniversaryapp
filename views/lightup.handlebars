@@ -15,7 +15,7 @@
            </div>
         </form>
         <div class="lsgbook_desc" id="msg" hidden="true">
-            <textarea rows="5">Tile {{id}}
+            <textarea rows="5" disabled>Tile {{id}}
 has been light up.
 Thank you for being part of this significant milestone.
             </textarea>
@@ -76,6 +76,14 @@ Thank you for being part of this significant milestone.
         overflow: hidden;
         resize: none;
     }
+
+    textarea.disabled {
+        text-align: center;
+        background-color: white;
+        font-family: Century Gothic,CenturyGothic,AppleGothic,sans-serif;
+        overflow: hidden;
+        resize: none;
+    }
    /* @media (orientation: portrait) {
         .lmain {
             background-image: url('nypimg/background-web-Vertical.jpg');
@@ -111,7 +119,11 @@ Thank you for being part of this significant milestone.
         }
         textarea {
             font-size: 0.8em;
-            border: 10px solid #ed1c24;
+            border: 1px solid #ed1c24;
+        }
+        textarea.disabled {
+            font-size: 0.8em;
+            border: 1px solid #ed1c24;
         }
     }
     @media (orientation: landscape) {
