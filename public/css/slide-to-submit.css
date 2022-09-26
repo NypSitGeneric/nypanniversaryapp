@@ -1,8 +1,8 @@
 .slide-submit {
-    background:linear-gradient(to right, #222222, white);
+    background:linear-gradient(to right, #CFD6E6, white);
     /*background-image: url('/nypimg/btn_slide2.png');*/
     background-size: cover;
-    color:white; /*Text Color */
+    color:black; /*Text Color */
     box-shadow:0 0 0 3px white; /* The Border Color*/
     border-radius:30px;
     text-align:center;
@@ -56,16 +56,16 @@
     cursor:grabbing
 }
 .slide-success{
-    background:linear-gradient(to left, #222222, white);
+    background:linear-gradient(to left, #CFD6E6, white);
     text-align:center;
-    color:#fff;
+    color:black;
     box-shadow:0 0 0 3px white;
     font-size: .8em;
 }
 .slide-success .slide-submit-thumb{
     background:white;
-    box-shadow:inset 0 0 0 2px #ffd57a,inset 0 0 0 3px rgba(0,0,0,0.17);
-    color:#ffd57a;
+    box-shadow:inset 0 0 0 2px #CFD6E6,inset 0 0 0 3px rgba(0,0,0,0.17);
+    color:black;
     pointer-events:none
 }
 /*@media (orientation: portrait){

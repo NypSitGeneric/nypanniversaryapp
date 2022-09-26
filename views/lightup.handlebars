@@ -15,7 +15,10 @@
            </div>
         </form>
         <div class="lsgbook_desc" id="msg" hidden="true">
-            Tile {{id}} has been light up. <br>Thank you for being part of this significant milestone.
+            <textarea rows="5" disabled>Tile {{id}}
+has been light up.
+Thank you for being part of this significant milestone.
+            </textarea>
         </div>
 </div>
 
@@ -66,7 +69,14 @@
         color: black;
         font-family:  Century Gothic,CenturyGothic,AppleGothic,sans-serif;
     }
-
+    textarea {
+        text-align: center;
+        border: 15px solid #ed1c24;
+        background-color: white;
+        font-family: Century Gothic,CenturyGothic,AppleGothic,sans-serif;
+        overflow: hidden;
+        resize: none;
+    }
    /* @media (orientation: portrait) {
         .lmain {
             background-image: url('nypimg/background-web-Vertical.jpg');
