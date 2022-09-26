@@ -46,12 +46,12 @@
     /*color:greenyellow;*/
 }
 .slide-submit-thumb:hover,.draggable{
-    background:#febf36;
+    background:white;
     cursor:-webkit-grab;
     cursor:grab
 }
 .slide-submit-thumb:active{
-    background:#fecd07;
+    background:white;
     cursor:-webkit-grabbing;
     cursor:grabbing
 }
@@ -59,7 +59,7 @@
     background:linear-gradient(to left, #222222, white);
     text-align:center;
     color:#fff;
-    box-shadow:0 0 0 3px #febf36;
+    box-shadow:0 0 0 3px white;
     font-size: .8em;
 }
 .slide-success .slide-submit-thumb{
