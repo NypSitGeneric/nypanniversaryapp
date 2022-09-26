@@ -60,7 +60,6 @@
     text-align:center;
     color:black;
     box-shadow:0 0 0 3px white;
-    font-size: .8em;
 }
 .slide-success .slide-submit-thumb{
     background:white;
@@ -154,7 +153,7 @@
     }
     .slide-success{
         text-align: center;
-        font-size: .8em;
+        font-size: .7em;
     }
 }
 @media (orientation: landscape){
