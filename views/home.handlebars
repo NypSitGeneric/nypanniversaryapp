@@ -6,8 +6,8 @@
         <div class="grid">
             {{#each tiles}}
                 <div id="{{#add @index }}{{/add}}" class="inner {{#if this}}flip{{/if}}">
-<!--                    <div class="front"></div>-->
-                    <div class="front"><p>{{#add @index}}{{/add}}</p></div>
+                    <div class="front"></div>
+<!--                    <div class="front"><p>{{#add @index}}{{/add}}</p></div>-->
                     <div class="back"><img src="/tiles/tile_{{#add @index}}{{/add}}.png" /></div>
                 </div>
             {{/each}}
