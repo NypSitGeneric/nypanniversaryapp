@@ -18,6 +18,9 @@ app.engine('handlebars', exphbs.engine({
 		add: function (index) {
 			return index + 1;
 		},
+		logo: function (index) {
+			return "logo_" + (index + 1);
+		},
 		pad: function (number) {
 			return number.toString().padStart(4, '0');
 		}
@@ -27,8 +30,9 @@ app.set('view engine', 'handlebars');
 
 app.use(Express.static("public", {maxAge: 3600000}));
 
-var tiles = Array(1400);
-var sectionIds = [7, 4, 2, 6, 9, 10, 1, 5, 3, 8];
+var tiles = Array(1098);
+var logoTiles = Array(2);
+var sectionIds = [7, 4, 2, 6, 9, 1, 5, 3, 8];
 var disabled = {};
 var flippedTiles = {};
 var logo = false;
@@ -39,10 +43,11 @@ async function init() {
 	console.log("init");
 	// init tiles
 	tiles.fill(false);
-	for(var i = 1; i <= 10; i++) {
+	logoTiles.fill(false);
+	for(var i = 1; i <= 9; i++) {
 		disabled[i] = false;
 	}
-	for(var i = 1;i<= 1400; i++) {
+	for(var i = 1;i<= 1098; i++) {
 		flippedTiles[i] = false;
 	}
 }
@@ -52,7 +57,7 @@ app.get("/", (req, res) => {
 		res.render("lightup", {id: req.query.id, title: `NYP 30th Anniversary Tile ${req.query.id}`});
 	}
 	else {
-		res.render("home", {tiles, logo, title: "NYP 30th Anniversary App"});
+		res.render("home", {tiles, logoTiles, logo, title: "NYP 30th Anniversary App"});
 	}
 });
 
@@ -66,10 +71,10 @@ app.post("/lightup", (req, res) => {
 		tiles[req.body.id - 1] = true;
 		flippedTiles[req.body.id] = true;
 		// get section index
-		var index = Math.ceil(req.body.id / 140) - 1;
+		var index = Math.ceil(req.body.id / 122) - 1;
 		var id = req.body.id;
 		// check if all tiles in section are already flipped
-		if(tiles.slice(index * 140, (index + 1) * 140 - 1).every(Boolean)) {
+		if(tiles.slice(index * 122, (index + 1) * 122 - 1).every(Boolean)) {
 			disabled[sectionIds[index]] = true;
 			Object.values(admins).forEach(client => {
 				client.write(`data: disable ${sectionIds[index]}\n\n`);
@@ -105,7 +110,7 @@ app.get("/assigntiles", (req, res) => {
 			return res.render("thankyou", {id: id, title: "NYP 30th Anniversary"});
 		}
 
-		id = Math.floor((Math.random() * 1400) + 1);
+		id = Math.floor((Math.random() * 1098) + 1);
 		if (flippedTiles[id]==false){
 			isFlipped = false;
 		}
@@ -128,10 +133,11 @@ app.get("/tiles",(req,res) => {
 
 app.post("/reset", (req, res) => {
 	tiles.fill(false);
-	for(var i = 1;i<= 1400; i++) {
+	logoTiles.fill(false);
+	for(var i = 1;i<= 1098; i++) {
 		flippedTiles[i] = false;
 	}
-	for(var i = 1; i <= 10; i++) {
+	for(var i = 1; i <= 9; i++) {
 		disabled[i] = false;
 	}
 	logo = false;
@@ -143,7 +149,7 @@ app.post("/reset", (req, res) => {
 
 app.post("/flipremaining", (req, res) => {
 	tiles.fill(true);
-	for(var i = 1;i<= 1400; i++) {
+	for(var i = 1;i<= 1098; i++) {
 		flippedTiles[i] = true;
 	}
 	Object.values(clients).forEach(client => {
@@ -155,7 +161,7 @@ app.post("/flipremaining", (req, res) => {
 app.post("/fliplogo", (req, res) => {
 	logo = true;
 	Object.values(clients).forEach(client => {
-		client.write(`data: logo\n\n`);
+		client.write(`data: logo_${req.body.logo}\n\n`);
 	});
 	res.redirect("/admin");
 });
@@ -174,8 +180,8 @@ app.post("/flip/:section", (req, res) => {
 	// flip tiles in section
 	console.log(req.params.section);
 	var index = sectionIds.indexOf(parseInt(req.params.section));
-	for(var i = index * 140; i <= (index + 1) * 140 - 1; i++) {
-		if(i <= 1399) {
+	for(var i = index * 122; i <= (index + 1) * 122 - 1; i++) {
+		if(i <= 1097) {
 			tiles[i] = true;
 			flippedTiles[i+1] = true;
 		}
