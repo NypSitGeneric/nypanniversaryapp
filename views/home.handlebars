@@ -124,9 +124,10 @@
                         tile.classList.remove("flip");
                     }
                 }else if (e.data === "unfliplogo") {
-                    for(var tile of document.getElementsByClassName("inner logo")) {
-                        tile.classList.remove("flip");
-                    }
+                    var logo1 =  document.getElementById("logo_1")
+                    var logo2 =  document.getElementById("logo_2")
+                    logo1.classList.remove("flip");
+                    logo2.classList.remove("flip");
                 }else if(e.data.includes("section")) {
                     // get section id
                     var section = parseInt(e.data.split(" ")[1]);
