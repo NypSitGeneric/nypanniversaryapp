@@ -25,7 +25,7 @@ Thank you for being part of this significant milestone.
 <script>
     window.onload = () => {
         const id = document.getElementById("id");
-        console.log('KK1',id)
+        //console.log('KK1',id)
         if(id.value >= 1099) {
             const flippedLogos = new XMLHttpRequest();
             flippedLogos.responseType = "json";
@@ -33,7 +33,7 @@ Thank you for being part of this significant milestone.
             flippedLogos.send();
             flippedLogos.onload = () => {
                 const logos = flippedLogos.response;
-                console.log('KK2',logos);
+                //console.log('KK2',logos);
                 if (id.value == 1099) {
                     if (logos[1] === true){
                         document.getElementById("lightUpBtn").hidden = true;
