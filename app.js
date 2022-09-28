@@ -35,6 +35,7 @@ var logoTiles = Array(2);
 var sectionIds = [7, 4, 2, 6, 9, 1, 5, 3, 8];
 var disabled = {};
 var flippedTiles = {};
+var flippedLogos = {}
 var logo = false;
 var clients = {};
 var admins = {};
@@ -50,6 +51,9 @@ async function init() {
 	for(var i = 1;i<= 1098; i++) {
 		flippedTiles[i] = false;
 	}
+	for(var i = 1; i <= 2; i++) {
+		flippedLogos[i] = false;
+	}
 }
 
 app.get("/", (req, res) => {
@@ -62,23 +66,19 @@ app.get("/", (req, res) => {
 });
 
 app.post("/lightup", (req, res) => {
-	//if(req.body.id == 480) {
-		//logo = true;
-		//Object.values(clients).forEach(client => {
-		//	client.write(`data: logo\n\n`);
-		//});
-	//} else {
 
 	if (req.body.id == 1099) {
+		flippedLogos[1] = true;
 		Object.values(clients).forEach(client => {
 			client.write(`data: logo_1\n\n`);
 		});
-		res.redirect(`/?id=${id}`);
+		res.redirect(`/?id=${req.body.id}`);
 	} else if (req.body.id == 1100) {
+		flippedLogos[2] = true;
 		Object.values(clients).forEach(client => {
 			client.write(`data: logo_2\n\n`);
 		});
-		res.redirect(`/?id=${id}`);
+		res.redirect(`/?id=${req.body.id}`);
 	} else {
 		tiles[req.body.id - 1] = true;
 		flippedTiles[req.body.id] = true;
@@ -144,12 +144,18 @@ app.get("/disabled", (req, res) => {
 app.get("/tiles",(req,res) => {
 	res.json(flippedTiles);
 });
+app.get("/logotiles",(req,res) => {
+	res.json(flippedLogos);
+});
 
 app.post("/reset", (req, res) => {
 	tiles.fill(false);
 	logoTiles.fill(false);
 	for(var i = 1;i<= 1098; i++) {
 		flippedTiles[i] = false;
+	}
+	for (var i = 1; i<= 2;i++) {
+		flippedLogos[i] = false;
 	}
 	for(var i = 1; i <= 9; i++) {
 		disabled[i] = false;
@@ -165,6 +171,9 @@ app.post("/flipremaining", (req, res) => {
 	tiles.fill(true);
 	for(var i = 1;i<= 1098; i++) {
 		flippedTiles[i] = true;
+	}
+	for(var i = 1; i <= 2; i++) {
+		flippedLogos[i] = true;
 	}
 	Object.values(clients).forEach(client => {
 		client.write(`data: remaining\n\n`);
@@ -182,6 +191,9 @@ app.post("/fliplogo", (req, res) => {
 
 app.post("/unfliplogo", (req, res) => {
 	logo = false;
+	for (var i = 1; i<= 2;i++) {
+		flippedLogos[i] = false;
+	}
 	Object.values(clients).forEach(client => {
 	client.write(`data: unfliplogo\n\n`);
 	});
