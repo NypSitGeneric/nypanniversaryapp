@@ -24,23 +24,53 @@ Thank you for being part of this significant milestone.
 
 <script>
     window.onload = () => {
-        var flippedTiles = new XMLHttpRequest();
-        flippedTiles.responseType = "json";
-        flippedTiles.open("GET","/tiles",true);
-        flippedTiles.send();
-        flippedTiles.onload = () => {
-            var tiles = flippedTiles.response;
-            var id = document.getElementById("id");
-            if (tiles[id.value] === true) {
-                document.getElementById("lightUpBtn").hidden = true;
-                document.getElementById("msg").hidden = false;
-            }
-            else {
-                //document.getElementById("light-up-btn").classList.remove("disabled");
-                document.getElementById("lightUpBtn").hidden = false;
-                document.getElementById("msg").hidden = true;
-            }
+        const id = document.getElementById("id");
+        console.log('KK1',id)
+        if(id.value >= 1099) {
+            const flippedLogos = new XMLHttpRequest();
+            flippedLogos.responseType = "json";
+            flippedLogos.open("GET","/logotiles",true);
+            flippedLogos.send();
+            flippedLogos.onload = () => {
+                const logos = flippedLogos.response;
+                console.log('KK2',logos);
+                if (id.value == 1099) {
+                    if (logos[1] === true){
+                        document.getElementById("lightUpBtn").hidden = true;
+                        document.getElementById("msg").hidden = false;
+                    } else {
+                        document.getElementById("lightUpBtn").hidden = false;
+                        document.getElementById("msg").hidden = true;
+                    }
+                }
 
+                if (id.value ==1100) {
+                    if (logos[2] === true) {
+                        document.getElementById("lightUpBtn").hidden = true;
+                        document.getElementById("msg").hidden = false;
+                    }else {
+                        document.getElementById("lightUpBtn").hidden = false;
+                        document.getElementById("msg").hidden = true;
+                    }
+                }
+            }
+        }else {
+            const flippedTiles = new XMLHttpRequest();
+            flippedTiles.responseType = "json";
+            flippedTiles.open("GET","/tiles",true);
+            flippedTiles.send();
+            flippedTiles.onload = () => {
+                var tiles = flippedTiles.response;
+                if (tiles[id.value] === true) {
+                    document.getElementById("lightUpBtn").hidden = true;
+                    document.getElementById("msg").hidden = false;
+                }
+                else {
+                    //document.getElementById("light-up-btn").classList.remove("disabled");
+                    document.getElementById("lightUpBtn").hidden = false;
+                    document.getElementById("msg").hidden = true;
+                }
+            }
         }
     }
     $('.slide-submit').slideToSubmit({
