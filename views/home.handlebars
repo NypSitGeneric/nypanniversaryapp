@@ -1,36 +1,54 @@
 <!-- display grid of tiles -->
 <div class="main">
     <div class="item1"></div>
-    <div class="item2">
+    <div class="item2"></div>
+    <div class="item3">
         <div class="grid">
             {{#each tiles}}
                 <div id="{{#add @index }}{{/add}}" class="inner {{#if this}}flip{{/if}}">
                     <div class="front"></div>
 <!--                    <div class="front"><p>{{#add @index}}{{/add}}</p></div>-->
-                    <div class="back"><img src="/nyptiles/nyp30_{{#add @index}}{{/add}}.png" alt="loading"/></div>
+                    <div class="back"><img src="/tiles/tile_{{#add @index}}{{/add}}.png" /></div>
+                </div>
+            {{/each}}
+        </div></div>
+    <div class="item4">
+        <div class="grid_logo">
+            {{#each logoTiles}}
+                <div id="{{#logo @index }}{{/logo}}" class="inner {{#if this}}flip{{/if}}">
+                    <div class="front_logo"></div>
+<!--                    <div class="front_logo"><p>{{#add @index}}{{/add}}</p></div>-->
+                    <div class="back_logo"><img src="/tiles/tile_logo_{{#add @index}}{{/add}}.png" alt="loading"/></div>
                 </div>
             {{/each}}
         </div>
     </div>
-
-
 </div>
 
 <style>
     .main {
         display: grid;
-        grid-template-columns: auto;
-        gap: 83%;
+        grid-template-columns: 66% 34%;
+        grid-template-rows: auto auto auto;
+        row-gap: 40%;
+    }
+    .grid_logo {
+        padding-right: 6px;
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: repeat(1, 1fr);
+        height:100%; /*75*/
+        width: 100%;
+        display: grid;
     }
     .grid {
-        padding-right: 6px;
+        /*padding-right: 6px;*/
         padding-left: 6px;
         display: grid;
-        grid-template-columns: repeat(35, auto);
-        grid-template-rows: repeat(40, auto);
+        grid-template-columns: repeat(61, 1fr);
+        grid-template-rows: repeat(18, 1fr);
         /*height: 20vh;*/
-        height:34.2vh;
-        width: 100%;
+        height:25vh; /*25*/
+        width: 100%; /*edit*/
     }
     p{
         font-size: 8px;
@@ -43,22 +61,31 @@
         transition: transform 1s;
         transform-style: preserve-3d;
     }
-
-    .front, .back {
+    .item3 {
+        padding-top: 15%;
+    }
+    .item4 {
+        padding-top: 29.1%;
+    }
+    .front, .back, .front_logo, .back_logo {
         position: absolute;
         width: 100%;
-        /*height:14px;*/
         -webkit-backface-visibility: hidden;
         backface-visibility: hidden;
+        height: 100%;
     }
 
-    .front {
+    .front{
         background-color: #184896;
-        height: 10px;
-        width: 58px;
+        /*height: 8px;*/
+        /*width: 14px;*/
     }
-
-    .back {
+    .front_logo{
+        background-color: #184896;
+        /*height: 20px;*/
+        /*width: 21px;*/
+    }
+    .back, .back_logo {
         transform: rotateY(180deg);
     }
 
@@ -70,31 +97,13 @@
         /*border: 1px solid black;*/
     }
 
-/*    .logo {
-        width: 100%;
-        grid-column-start: span 3;
-        grid-row-start: span 19;
-    }
-
-    .back-logo {
-        position: relative;
-        top: 4.3%;
-        height: 100%;
-    }
-
-    .front-logo {
-        top: 4.3%;
-        height: 100%;
-        width: 100%;
-    }*/
-
     img {
         width: 100%;
         height: 100%;
     }
 </style>
 <script>
-    var sectionIds = [7, 4, 2, 6, 9, 10, 1, 5, 3, 8];
+    var sectionIds = [7, 4, 2, 6, 9, 1, 5, 3, 8];
     var sections = {};
 
     window.onload = () => {
@@ -103,7 +112,7 @@
         for(var [index, section] of sectionIds.entries()) {
             // generate array of ids for current section
             // start: index * 48 + 1
-            sections[section] = [...Array(140).keys()].map(i => i + (index * 140 + 1));
+            sections[section] = [...Array(122).keys()].map(i => i + (index * 122 + 1));
         }
         // open connection
         var connection = new EventSource("/connect");
@@ -114,13 +123,15 @@
                     for(var tile of document.getElementsByClassName("inner")) {
                         tile.classList.remove("flip");
                     }
-                } else if (e.data === "unfliplogo") {
-                    for(var tile of document.getElementsByClassName("inner logo")) {
-                        tile.classList.remove("flip");
-                    }
+                }else if (e.data === "unfliplogo") {
+                    var logo1 =  document.getElementById("logo_1")
+                    var logo2 =  document.getElementById("logo_2")
+                    logo1.classList.remove("flip");
+                    logo2.classList.remove("flip");
                 }else if(e.data.includes("section")) {
                     // get section id
                     var section = parseInt(e.data.split(" ")[1]);
+                    //console.log("KK",sections[section]);
                     // get remaining tiles in section
                     var remaining = sections[section].filter(id => !document.getElementById(id).classList.contains("flip"));
                     // shuffle remaining tiles in section
@@ -130,7 +141,7 @@
                     (function loop() {
                         // set random delay between 500ms and 1sec
                         var delay = Math.floor(Math.random() * (50 - 500 + 1)) + 500;
-                        if(i <= 139) {
+                        if(i <= 121) {
                             setTimeout(function() {
                                 // flip tile
                                 document.getElementById(remaining[i++]).classList.add("flip");
