@@ -68,6 +68,18 @@ app.post("/lightup", (req, res) => {
 		//	client.write(`data: logo\n\n`);
 		//});
 	//} else {
+
+	if (req.body.id == 1099) {
+		Object.values(clients).forEach(client => {
+			client.write(`data: logo_1\n\n`);
+		});
+		res.redirect(`/?id=${id}`);
+	} else if (req.body.id == 1100) {
+		Object.values(clients).forEach(client => {
+			client.write(`data: logo_2\n\n`);
+		});
+		res.redirect(`/?id=${id}`);
+	} else {
 		tiles[req.body.id - 1] = true;
 		flippedTiles[req.body.id] = true;
 		// get section index
@@ -79,20 +91,22 @@ app.post("/lightup", (req, res) => {
 			Object.values(admins).forEach(client => {
 				client.write(`data: disable ${sectionIds[index]}\n\n`);
 			});
-		//}
+			//}
+			Object.values(clients).forEach(client => {
+				client.write(`data: ${req.body.id}\n\n`);
+			});
+		}
 		Object.values(clients).forEach(client => {
 			client.write(`data: ${req.body.id}\n\n`);
 		});
+		// res.sendStatus(200);
+		//res.render("thankyou", {title: "NYP 30th Anniversary - Thank You"});
+		res.redirect(`/?id=${id}`);
+		//res.redirect('back');
+		//res.sendStatus(200);
+		//res.status(200);
 	}
-	Object.values(clients).forEach(client => {
-		client.write(`data: ${req.body.id}\n\n`);
-	});
-	// res.sendStatus(200);
-	//res.render("thankyou", {title: "NYP 30th Anniversary - Thank You"});
-	res.redirect(`/?id=${id}`);
-	//res.redirect('back');
-	//res.sendStatus(200);
-	//res.status(200);
+
 });
 
 app.get("/admin", (req, res) => {
