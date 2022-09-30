@@ -1,6 +1,6 @@
 <!-- display grid of tiles -->
 <div class="main">
-    <div class="item1"></div>
+    <div class="item1"><button id="autoClick" onclick="clicked()" hidden>Click to enable sound</button></div>
     <div class="item2"></div>
     <div class="item3">
         <div class="grid">
@@ -23,6 +23,12 @@
             {{/each}}
         </div>
     </div>
+    <audio id="MyAudioElement" hidden>
+        <source src="audio/after_flipped.mp3">
+        <source src="audio/after_flipped.mp3">
+        Your browser does not support the audio element.
+    </audio>
+
 </div>
 
 <style>
@@ -103,11 +109,19 @@
     }
 </style>
 <script>
-    var sectionIds = [7, 4, 2, 6, 9, 1, 5, 3, 8];
+
+function clicked() {
+    console.log("clicked");
+    // document.getElementById("autoClick").click();
+    document.getElementById("autoClick").hidden = true;
+}
+
+var sectionIds = [7, 4, 2, 6, 9, 1, 5, 3, 8];
     var sections = {};
 
     window.onload = () => {
         console.log("load");
+
         // set tile ids for sections
         for(var [index, section] of sectionIds.entries()) {
             // generate array of ids for current section
@@ -157,7 +171,12 @@
                     console.log("ping");
                 } else {
                     if(!document.getElementById(e.data).classList.contains("flip")) {
-                        document.getElementById(e.data).classList.toggle("flip")}
+                        document.getElementById(e.data).classList.toggle("flip")
+                    }
+                    if (e.data == "logo_2") {
+                        console.log("KK","Audio");
+                        document.getElementById("MyAudioElement").play();
+                    }
                 }
             };
         };

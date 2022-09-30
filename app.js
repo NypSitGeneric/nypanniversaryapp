@@ -186,6 +186,7 @@ app.post("/fliplogo", (req, res) => {
 	Object.values(clients).forEach(client => {
 		client.write(`data: logo_${req.body.logo}\n\n`);
 	});
+
 	res.redirect("/admin");
 });
 
