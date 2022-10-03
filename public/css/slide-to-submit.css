@@ -210,21 +210,21 @@
     .slide-submit {
         background-size: cover;
         padding:1.5em 1.5em;
-        font-size:.8em;
+        font-size:1.0em;
         text-align:center;
-        width: 50vh;
-        margin-top: 33%;
+        width: 45vh;
+        margin-top: 35%;
         margin-left: 62%;
     }
     .tile-submit{
         text-align:center;
-        margin-top: 45%;
+        margin-top: 48%;
         margin-left: 27%;
         font-size:3.8em;
     }
     .slide-success{
         text-align: center;
-        font-size: .8em;
+        font-size: 1.0em;
     }
     .slide-submit-thumb{
         width: 50px;
