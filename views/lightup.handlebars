@@ -108,24 +108,6 @@ Thank you for being part of this significant milestone.
         opacity: 100.0;
     }
 
-   /* @media (orientation: portrait) {
-        .lmain {
-            background-image: url('nypimg/background-web-Vertical.jpg');
-            background-repeat: no-repeat;
-            height: 100vh;
-            width: 100%;
-            background-size: contain;
-            !*width: 200%;*!
-        }
-        .lsgbook_desc {
-            width: 150%;
-            font-size: .8em;
-            margin-left: 9%;
-            padding-left: 45%;
-            transform: rotate(90deg);
-            transform-origin: 5% 5%;
-        }
-    }*/
     @media (orientation: portrait) {
         .lmain {
             background-image: url('nypimg/background-web-Portrait.png');
@@ -143,6 +125,27 @@ Thank you for being part of this significant milestone.
         }
         textarea {
             font-size: 0.7em;
+            border: 1px solid #ed1c24;
+        }
+    }
+
+    @media (orientation: portrait) and (min-width: 600px) {
+        .lmain {
+            background-image: url('nypimg/background-web-Portrait.png');
+            background-repeat: no-repeat;
+            height: 108vh;
+            width: 100%;
+            background-size:contain;
+            background-position: center top;
+            /*width: 200%;*/
+        }
+        .lsgbook_desc {
+            font-size: 1.0em;
+            padding-top: 90%;
+            padding-left: 30%;
+        }
+        textarea {
+            font-size: 1.0em;
             border: 1px solid #ed1c24;
         }
     }
