@@ -156,6 +156,7 @@
         font-size: .8em;
     }
 }
+/* Tablet with Portrait*/
 @media (orientation: portrait) and (min-width: 600px){
     .slide-submit {
         background-size: cover;
