@@ -156,32 +156,6 @@
         font-size: .8em;
     }
 }
-/* Tablet with Portrait*/
-@media (orientation: portrait) and (min-width: 600px){
-    .slide-submit {
-        background-size: cover;
-        background-repeat: no-repeat;
-        padding:1.0em 1.0em;
-        font-size:1.0em;
-        text-align:center;
-        width: 21vh;
-        margin-left: 50%;
-        margin-top: 88%;
-    }
-    .tile-submit{
-        text-align:center;
-        margin-top: 88%;
-        margin-left: 28%;
-        font-size:3.0em;
-    }
-    .slide-submit-thumb{
-        width:50px;
-    }
-    .slide-success{
-        text-align: center;
-        font-size: 1.0em;
-    }
-}
 @media (orientation: landscape){
     .slide-submit {
         background-size: cover;
@@ -206,6 +180,32 @@
         width: 50px;
     }
 }
+/* Tablet with Portrait*/
+@media (orientation: portrait) and (min-width: 600px){
+    .slide-submit {
+        background-size: cover;
+        background-repeat: no-repeat;
+        padding:1.0em 1.0em;
+        font-size:1.0em;
+        text-align:center;
+        width: 21vh;
+        margin-left: 50%;
+        margin-top: 87%;
+    }
+    .tile-submit{
+        text-align:center;
+        margin-top: 86.5%;
+        margin-left: 28%;
+        font-size:3.0em;
+    }
+    .slide-submit-thumb{
+        width:50px;
+    }
+    .slide-success{
+        text-align: center;
+        font-size: 1.0em;
+    }
+}
 @media (orientation: landscape) and (min-width: 961px){
     .slide-submit {
         background-size: cover;
@@ -213,12 +213,12 @@
         font-size:1.0em;
         text-align:center;
         width: 43vh;
-        margin-top: 35%;
+        margin-top: 34%;
         margin-left: 62%;
     }
     .tile-submit{
         text-align:center;
-        margin-top: 49%;
+        margin-top: 47.5%;
         margin-left: 27%;
         font-size:3.8em;
     }
