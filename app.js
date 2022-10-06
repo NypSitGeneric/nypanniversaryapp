@@ -35,7 +35,8 @@ var logoTiles = Array(2);
 var sectionIds = [7, 4, 2, 6, 9, 1, 5, 3, 8];
 var disabled = {};
 var flippedTiles = {};
-var flippedLogos = {}
+var flippedLogos = {};
+var luckyDrawNumber = {};
 var logo = false;
 var clients = {};
 var admins = {};
@@ -65,7 +66,22 @@ app.get("/", (req, res) => {
 	}
 });
 
+app.get("/luckydraw", (req, res) => {
+	let numberArr = Object.keys(luckyDrawNumber);
+	//let numberArr = ["3","4"];
+	res.render("luckydraw", {numberArr, title: "NYP 30th Anniversary App"});
+});
+
+app.get("/getluckydrawnumber", (req, res) => {
+	let numberArr = Object.keys(luckyDrawNumber);
+	res.json(numberArr);
+});
+
 app.post("/lightup", (req, res) => {
+
+	if (!(req.body.id in luckyDrawNumber)) {
+		luckyDrawNumber[req.body.id] = "Flipped";
+	}
 
 	if (req.body.id == 1099) {
 		flippedLogos[1] = true;
@@ -149,6 +165,7 @@ app.get("/logotiles",(req,res) => {
 });
 
 app.post("/reset", (req, res) => {
+	luckyDrawNumber = {};
 	tiles.fill(false);
 	logoTiles.fill(false);
 	for(var i = 1;i<= 1098; i++) {
