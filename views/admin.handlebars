@@ -14,6 +14,9 @@
     <form action="/unfliplogo" method="post">
         <input type="submit" value="Unflip Logo" class="btn admin-btn btn-style" id="unflip-logo">
     </form>
+    <form action="/luckydraw" method="get">
+        <input type="submit" value="Lucky Draw Number" class="btn admin-btn btn-style" id="lucky-draw">
+    </form>
     <div id="sections">
         <a id="1" class="btn btn-style section-btn" onclick="flipSection(1, event)">Flip Section 1</a>
         <a id="2" class="btn btn-style section-btn" onclick="flipSection(2, event)">Flip Section 2</a>
@@ -88,12 +91,14 @@
     #unflip-logo {
         top: 40%;
     }
-
+    #lucky-draw {
+        top: 50%;
+    }
     #sections {
         display: grid;
         grid-template-columns: repeat(2, 1fr);
         position: absolute;
-        top: 80%;
+        top: 85%;
         left: 50%;
         -ms-transform: translate(-50%, -50%);
         transform: translate(-50%, -50%);
@@ -119,7 +124,7 @@
         }
 
         #sections {
-            top: 75%;
+            top: 85%;
         }
     }
 

@@ -23,8 +23,13 @@ window.onload = () => {
         numbers.send();
         numbers.onload = () => {
             const luckyDrawNumber = numbers.response;
-            const blob = new Blob([luckyDrawNumber], {type: "text/plain;charset=utf-8"});
-            saveAs(blob, "lucky_draw_number.txt");
+            if (luckyDrawNumber.length > 0) {
+                const blob = new Blob([luckyDrawNumber], {type: "text/plain;charset=utf-8"});
+                saveAs(blob, "lucky_draw_number.txt");
+            }
+            else {
+                console.log("No lucky draw number");
+            }
         }
     }
 </script>
