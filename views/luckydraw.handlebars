@@ -1,0 +1,45 @@
+<script src="/js/FileSaver.js"></script>
+<div class="lmain">
+    <div style="margin:10vh 2vh;">
+        {{#if numberArr.length}}
+            <h2>Total Tiles Flipped: {{numberArr.length}}</h2> <br/>
+            {{#each numberArr}}
+                {{#pad this}}{{/pad}}<br/>
+            {{/each}}
+        {{else}}
+            <p class="msg">No Tiles had been Flipped.<br/>Please Flip a Tile.</p>
+        {{/if}}
+
+    </div>
+
+</div>
+
+<script>
+
+window.onload = () => {
+        var numbers = new XMLHttpRequest();
+        numbers.responseType = "json";
+        numbers.open("get","/getluckydrawnumber",true);
+        numbers.send();
+        numbers.onload = () => {
+            const luckyDrawNumber = numbers.response;
+            if (luckyDrawNumber.length > 0) {
+                const blob = new Blob([luckyDrawNumber], {type: "text/plain;charset=utf-8"});
+                saveAs(blob, "lucky_draw_number.txt");
+            }
+            else {
+                console.log("No lucky draw number");
+            }
+        }
+    }
+</script>
+
+<style>
+    .lmain {
+        height: 100vh;
+        position: relative;
+        text-align: center;
+        font-family: Arial, Helvetica, sans-serif;
+        background-color: white;
+    }
+</style>
